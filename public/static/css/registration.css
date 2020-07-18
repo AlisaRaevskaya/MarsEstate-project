@@ -1,0 +1,47 @@
+@import "style.css";
+@import "flex.css";
+
+
+body{
+  background-image:url(../img/bodybg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  width:100%;
+  height:auto;
+}
+
+input{
+    margin-top:20px;
+    height:30px;
+    width:250px;
+    border-radius:20px; 
+}
+select{
+    margin-top:10px;
+    height:30px;
+    width:250px;
+    border-radius:10px;
+}
+.regform{
+    width:450px;
+    height:450px;
+    margin:100px 100px;
+    background-color: rgb(0, 0, 0, 0.5);
+    padding:20px;  
+    color:white;
+    position:relative;
+}
+h2{
+    cursor: help;
+    padding-left:10px;
+}
+.label{
+    padding-left:20px;
+    margin-top:10px;
+    text-transform:uppercase;
+}
+.submit{
+font-weight: bold;
+margin-left: 2rem;
+}

@@ -1,0 +1,42 @@
+{
+    "urls": {
+      "main": {
+        "path": "/",
+        "controller": "Alisa\\MarsEstate\\Controllers\\IndexController::indexAction",
+        "method": "GET"
+      },
+      "about": {
+        "path": "/about/",
+        "controller": "Alisa\\MarsEstate\\Controllers\\AboutController::about",
+        "method": "GET"
+      },
+      "services": {
+        "path": "/services/",
+        "controller": "Alisa\\MarsEstate\\Controllers\\ServicesController::services",
+        "method": "GET"
+      },
+      "contacts": {
+        "path": "/contacts/",
+        "controller": "Alisa\\MarsEstate\\Controllers\\ContactsController::contacts",
+        "method": "GET"
+      },
+"reg_user": {
+        "path": "/registration/",
+        "controller": "Alisa\\MarsEstate\\Controllers\\AccountController::regUser",
+        "method": "POST"
+      },
+"auth_user":{
+  "path": "/auth",
+  "controller": "Alisa\\MarsEstate\\Controllers\\AccountController::authUser",
+  "method": "POST"
+       }
+
+      },
+"db": {
+    "server": "127.0.0.1",
+    "dbname": "mars_web",
+    "user": "alisa_web",
+    "pass": "root_web2020",
+    "charset": "utf8"
+  }
+}

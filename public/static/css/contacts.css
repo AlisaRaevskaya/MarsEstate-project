@@ -1,0 +1,30 @@
+@import "style.css";
+@import "flex.css";
+@import "form.css";
+
+.contacts{
+    padding:2rem;
+    line-height:2;
+}
+
+#form_message{
+margin:2rem 1rem;
+}
+
+#form_message form{
+padding:1rem;
+border-radius: 5px;
+box-shadow: 0 0 10px rgba(0,0,0,0.5);
+width: 320px;
+height:350px;
+}
+input{
+    padding:0.6rem;
+}
+input[type="submit"]{
+    border-radius:5px;
+}
+input[type="textarea"]{
+	border-radius: 5px;
+	width: 170px;
+}

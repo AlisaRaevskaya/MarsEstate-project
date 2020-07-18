@@ -1,0 +1,22 @@
+{
+    "name": "alisa/mars-estate",
+    "description": "Website Mars estate",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alisa Raevskaya",
+            "email": "vindicta90@mail.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "ext-pdo":"*",
+        "nikic/fast-route": "^2.0@dev"
+    },
+    "autoload":{
+        "psr-4":{
+            "Alisa\\MarsEstate\\":"src/"
+        }
+    }
+}
