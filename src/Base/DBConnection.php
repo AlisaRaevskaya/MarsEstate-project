@@ -74,5 +74,4 @@ class DBConnection
        return $statement->execute($params);
     }
 
-
 }

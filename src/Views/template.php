@@ -9,14 +9,14 @@
     <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/static/css/<?echo $preloader;?>.css">
     <link rel="stylesheet" href="/static/css/<?echo $path_css;?>.css">
-    <link rel="stylesheet" href="/static/css/<?echo $form_css;?>.css">
     <link rel="stylesheet" href="/static/css/slick.css"/>
     <link rel="stylesheet" href="/static/slick/slick.css"/>
     <link rel="stylesheet" href="/static/slick/slick-theme.css"/>
     <title><?echo $page_title; ?></title>
     <!--общие библиотек-->
     <script src="/static/js/libs/common.js"></script> 
-
+    <script src="/static/js/jqueri-1.11.0.min.js"></script>
+<script src="/static/js/jquery-migrate-1.2.1min.js"></script>
 </head>
 <header class="general">
 <div class="absolute">
@@ -54,7 +54,7 @@
     </nav>
     </div>
     <div class="forlogin">
-        <a href="#auth" class="icon-login"></a>
+        <a href="/registration_form/" class="icon-login"></a>
     </div>
 </div>
 </div>
@@ -62,7 +62,8 @@
 
 <body>
 
-<main><?include_once $content ?></main>
+<main>
+<?include_once $content ?></main>
 
 <footer class="flex-row space-around">
 
@@ -119,77 +120,12 @@
 </div>
 </footer>
 
-<section class ="authorisation">
-    <div class="dws-wrapper" id="auth">
-    <div class="dws-form">
-    
-    <label title="Вкладка 1"class="tab">Авторизация</label>
-    <label title="Вкладка 2"class="tab">Регистрация</label>
-    
-    <form class="tab-form" action="/authorisation" method="post" autocomplete="on" name="auth" >
 
-        <div class="inputBox">
-    
-        <label for="login" class="labelText">Ваш email</label>
-        <input type="text" id="login"name="email" class="userInput">
-       </div>
-       <div class="inputBox">
-        <label for="pass"class="labelText">Ваш пароль</label> 
-        <input type="password" id="pass"name="password" class="userInput">
-       </div>
-       <input type="submit" value="Войти" class="button"/>
-       
-        <div class="fa_accounts flex-row space-between">
-            <div><a href="#"><i class="fa fa-facebook"></i></a></div>
-            <div><a href="#"><i class="fa fa-twitter"></i></a></div>
-            <div><a href="#"><i class="fa fa-instagram"></i></a></div>
-            <div><a href="#"><i class="fa fa-vk"></i></a></div>
-            <div><a href="#"><i class="fa fa-youtube"></i></a></div>
-            </div>
-        <a href ="#"class="forget">Забыл пароль?</a>
-        <a class="close-modal" href="#0">+</a>
-    
-    </form>
-    
-    <form class="tab-form" action="/registration/" method="post" autocomplete="on" >
-
-    <div class="inputBox">
-    <span> 
-    <label for="name_reg" class="labelText">Ваше имя</label>
-    <input type="text" id="name_reg" name="name" class="userInput">
-   </div>
-        <div class="inputBox">
-        <label for="email"class="labelText">Ваш email</label>
-        <input type="email" id="email"name="email" class="userInput">
-        </div>
-    
-        <div class="inputBox">
-        <label for="pass"class="labelText">Ваш пароль</label> 
-        <input type="password" id ="pass"name="password" class="userInput">
-        </div>
-        <div class="inputBox">
-        <label for="repeat_pass"class="labelText">Повторите пароль</label> 
-        <input type="password" id ="repeat_pass" name="re_password" class="userInput">
-        </div>
-        
-        <div class="recover">
-        <input type="checkbox" id="rules_ok" name="checkRules">
-        <label for="rules_ok">Ознакомлен(-а) и принимаю 
-        <br><a href="#" class="terms">условия регистрации</a></br></label>
-        </div>
-        <input type="submit" class="reg_button" value="Зарегистрироваться">
-        <a class="close-modal" href="#0">+</a>
-    </form>
-    </div>
-    </div>
-</section>
 <script src="/static/js/auth.js"></script>
-<script src="/static/js/form.js"></script>
 <script src="/static/js/general.js"></script>
-<script src="/static/js/jqueri-1.11.0.min.js"></script>
-<script src="/static/js/jquery-migrate-1.2.1min.js"></script>
+
 <script src="/static/slick/slick.min.js"></script>
 <script src="/static/js/slick.js"></script> 	
-<script src="/static/js/slider.js"></script> 
+<!-- <script src="/static/js/slider.js"></script>  -->
 </body>
 </html>

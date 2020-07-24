@@ -1,38 +1,27 @@
+ 
+let auth_form = document.forms.auth;
 
-/* <div class="inputBox">
-    <label for="email_reg"class="labelText">Ваш email</label>
-    <input type="email" id="email_reg"name="email" class="userInput">
-    </div>
+const AUTH_ERROR ='Ошибка авторизации';
+const AUTH_SUCCESS ='Авторизация успешна';
 
-    <div class="inputBox">
-    <label for="pass_reg"class="labelText">Ваш пароль</label> 
-    <input type="password" id ="pass_reg"name="password" class="userInput">
-    </div>
-    <div class="inputBox">
-    <label for="repeat_pass"class="labelText">Повторите пароль</label> 
-    <input type="password" id ="repeat_pass" name="password" class="userInput">
-    </div>
-    <input type="submit" class="reg_button" value="Зарегистрироваться">
+function responseHandler(answer){
+    if(answer === AUTH_ERROR){
+    alert(answer);
+} if(answer === AUTH_SUCCESS){
+    window.location.replace('/account');
+}
+}
 
-    <div class="recover">
-    <input type="checkbox" id="rules_ok">
-    <label for="rules_ok">Ознакомлен(-а) и принимаю 
-    <br><a href="#" class="terms">условия регистрации</a></br></label>
-    </div>
-} */
 
-//input fields 
-
-let form = document.forms.authForm;
+let form = document.forms.auth;
 let form_reg = document.forms.regForm;
-let submitButton = document.querySelector("input[type='submit']")
-let password =form.elements.password;
-let confirmPassword =form.elements.re_password;
-let text_error= document.querySelector(".text_invalid");
-let login=form.element.login;
-let email=form.element.email;
-let userInput=document.querySelector(".userInput");//input
 
+
+let text_error= document.querySelector(".text_invalid");
+let userInput=document.querySelector(".userInput");//input
+let submitButton = document.querySelector("input[type='submit']");
+const CONFIRM_PASS_ERROR ="Пароли должны соответствовать";
+const AUTH_OK = "Авторизация прошла успешно";
 
 //colors
 const GREEN = '#4CAF50';
@@ -42,76 +31,91 @@ form.addEventListener('submit', submitButtonFunction);
 
 function submitButtonFunction(event){
     event.preventDefault();
-    if (!validate(this)) return;
+    if (!validateAuth(this)) return;
+    $span = document.getElementById("#auth_result");
+    $span.innerText= AUTH_OK;
+    console.log("Отправка на сервер");
+    this.submit();
+}
 
+form_reg.addEventListener('submit', submitButtonFunctionReg);
+
+function submitButtonFunctionReg(event){
+    event.preventDefault();
+    if (!validate_Reg(this)) return;
     console.log("Отправка на сервер");
     this.submit();
 }
 
 
-function validate(form) {
+
+function validateAuth(form){
     // проверка пользовательского ввода
-    return true;
-}
+    let auth_email= form.element.auth_email;
+    let auth_password = form.elements.auth_password;
+    if(validateEmail(auth_email) && validatePassword(auth_password)) {
+      return true;}
+};
+
+
+
+function validate_Reg(form_reg) {
+  // проверка пользовательского ввода
+  let password =form_reg.elements.password;
+  let email =form_reg.elements.email;
+  let re_password =form_reg.elements.re_password;
+  let checkbox = form_reg.elements.checkRules;
+  let name = form_reg.element.name;
+
+  if(validateEmail(email) && validatePassword(password) && confirmPassword(password, re_password) && validateName(name)&& validateCheckbox(checkbox))
+  return true;
+};
 
 //validators
-function confirmPassword(){
-    // Empty check
-    if (checkIfEmpty(password)) return;
-    // Must of in certain length
-    if (!meetLength(password, 4, 100)) return;
-    // check password against our character set
-    // 1- a
-    // 2- a 1
-    // 3- A a 1
-    // 4- A a 1 @
-    //   if (!containsCharacters(password, 4)) return;
-    return true;
 
-};
 function validateEmail(email){
-    if (checkIfEmpty(email)) return;
-    if(!checkEmail(email)) return;
-    if (!meetLength(email, 4, 100)) return;
-    if (!containsCharacters(email, 5)) return;
-    return true;
-};
+    if (!checkIfEmpty(email)
+     && checkEmail(email) && meetLength(email, 4, 100) && containsCharacters(email, 5)) {
+      setValid(email);
+      return true;
+    }
+      return false;
+    };
+
 function validatePassword(password) {
-    // Empty check
-    if (checkIfEmpty(password)) return;
-    // Must of in certain length
-    if (!meetLength(password, 4, 100)) return;
-    // check password against our character set
-    // 1- a
-    // 2- a 1
-    // 3- A a 1
-    // 4- A a 1 @
-    //   if (!containsCharacters(password, 4)) return;
+   
+    if (!checkIfEmpty(password) && meetLength(password, 8, 100) && containsCharacters(password, 4)){
+      setValid(password);
+      return true;
+    }
+    return false;
+} 
+
+function confirmPassword(password, re_password){
+    if(password ===re_password){
+      setValid(re_password);
+    return true;}
+    {
+      setInvalid(re_password, CONFIRM_PASS_ERROR);
+    }
+};
+
+function validateName(name){
+
+}
+
+function validateCheckbox(checkbox){
+  if (checkbox.checked){
+    setValid(checkbox);
     return true;
-}  
-   
-   
-    function validateEmail(email) {
-        if (checkIfEmpty(email)) return;
-        if (!containsCharacters(email, 5)) return;
-        return true;
-
-      }
+  }
+  return false;
+}
 
 
-      function checkEmail(email) 
-      {
-    let re= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-       if (re.test(email.value.trim()))
-        {
-          return (true);
-        }
-          alert("You have entered an invalid email address!")
-          return (false);
-      }
 
 //valid//invalid
-function setVaild(elem){
+function setValid(elem){
   elem.className = 'valid';
 //   elem.nextElementSibling.innerHTML = '';
   elem.style.borderBottom="1px solid green";
@@ -129,33 +133,23 @@ function setInvalid(elem, message) {
 //empty
 function CheckIfEmpty(elem){
     if (elem.value.trim() === ''){///length==0
-        setInvalid(elem, 'Поле не может быть пустым');
-        //return false;
-    }
-    else{
-        setVaild(elem);
-        //return true;
+    setInvalid(elem, 'Поле не может быть пустым');
+        return true;
     }
 };
 //characters
 
 function ifonlyLowercase(elem){
 if(elem.value.trim()===elem.value.trim().toLowerCase()){
-    setInvald(elem, 'Пароль должен содержать минимум 1 заглавную букву');
-    return false;
-}else{
-setValid(elem);
-return true;
+setInvalid(elem, 'Пароль должен содержать минимум 1 заглавную букву');
+    return true;
 }
 };
 
 function IfonlyUppercase(elem){
 if(elem.value.trim()=== elem.value.trim().toUpperCase()){
-    setInvald(elem, 'Пароль должен содержать минимум 1 букву низкого регистра')
-    return false;
-}else{
-setValid(elem)
-return true;
+    setInvalid(elem, 'Пароль должен содержать минимум 1 букву низкого регистра')
+    return true;
 }
 };
 
@@ -172,15 +166,15 @@ function containOnlyNumbers(elem){
 
 //length
 function meetLength(elem, minlength, maxlength){
-    if(elem.value.trim().length>elem.minlength && elem.value.length<elem.maxlength){
+    if(elem.value.trim().length>minlength && elem.value.length<maxlength){
         setValid(elem)
         return true;
     }
     else if(elem.value.trim()< elem.minlength){
-        setInvalid(elem, `${elem.name} должен содеражать от ${elem.minLength} знаков`);
+        setInvalid(elem, `${name} должен содержать от ${minLength} знаков`);
         return false;
     }else{
-        setInvalid(elem, `${elem.name} должен содеражать до ${elem.maxLength} знаков`);
+        setInvalid(elem, `${name} должен содержать до ${maxLength} знаков`);
         return false;
     }
     };
@@ -234,3 +228,14 @@ function matchWithRegEx(regEx, field, message) {
     setInvalid(field, message);
     return false;
   }
+}
+    //   function checkEmail(email) 
+    //   {
+    // let re= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    //    if (re.test(email.value.trim()))
+    //     {
+    //       return (true);
+    //     }
+    //       alert("You have entered an invalid email address!")
+    //       return (false);
+    //   }

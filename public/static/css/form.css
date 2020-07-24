@@ -3,13 +3,6 @@
 @import "style.css";
 @import "flex.css";
 
-/* 
-body {
- margin: 0;
- padding: 0;
- font-family: Roboto, sans-serif;
- /* background:url(../img/new.jpg) */
-/* } */ 
 form{
     padding: 10px;
     /* border: 4px solid #9b2d30; */
@@ -20,21 +13,20 @@ a{
     color:white;
 }
 .dws-wrapper {
-    display:none;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 50%; 
     transform: translate(-50%, -50%);
     background: rgb(44, 44, 44, 0.7);
-    width:300px;
+    width:350px;
     padding: 20px;
     /* height:100vh;
     justify-content: center;
     align-items:center; */
    }
- .dws-wrapper:target{
+ /* .dws-wrapper:target{
     display: block;
-    }
+    } */
 .close-modal{
         transform:rotate(45deg);
         font-size:2rem;
@@ -94,6 +86,7 @@ label.tab {
     border-radius:3px 3px 0 0;
     margin-bottom:1px;
     cursor :pointer;
+    width:135px;
    }
 
 label.tab.active {
@@ -137,7 +130,8 @@ input.button {
     padding:10px 10px;
     cursor: pointer;
     transition: .5s;
-    border-radius: 10px;  
+    border-radius: 10px; 
+
    }
    .reg_button {
     background: #cc3500 ;
@@ -164,5 +158,7 @@ margin-top:1rem;
 a.terms:hover{
     color:#c2492d ;
 }
-
+.text-error{
+    color:red;
+}
  

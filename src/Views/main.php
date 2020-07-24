@@ -224,30 +224,6 @@
     </div> 
     </section> 
 
-        <section class ="container top-articles">
-        <div class="top-articles-grid">
-
-            <div>
-                    <div class="flex-3"><a href=""><img src="img/fam1.jpg"></a></div>
-                    <div class="flex-3"><a href=""><img src="img/fam2.jpg"></a></div>
-                    <div class="flex-3"><a href=""><img src="img/fam3.jpg"></a></div>
-                    <div class="flex-3"><a href=""><img src="img/fam4.jpg"></a></div>
-                </div>
-            <div>
-                    <div class="flex-3"><a href=""><img src="img/fam1.jpg"></a></div>
-                    <div class="flex-3"><a href=""><img src="img/fam2.jpg"></a></div>
-                    <div class="flex-3"><a href=""><img src="img/fam3.jpg"></a></div>
-                    <div class="flex-3"><a href=""><img src="img/fam4.jpg"></a></div>
-            </div>
-            <div>
-                    <div class="flex-3"><a href=""><img src="img/fam1.jpg"></a></div>
-                    <div class="flex-3"><a href=""><img src="img/fam2.jpg"></a></div>
-                    <div class="flex-3"><a href=""><img src="img/fam3.jpg"></a></div>
-                    <div class="flex-3"><a href=""><img src="img/fam4.jpg"></a></div>
-        </div>
-    </div>
-    </section>
-
 <section>
     <div class="famous container">
         <h2 class="text-center">Знаменитости,которые приобрели Внеземную Землю!</h2>

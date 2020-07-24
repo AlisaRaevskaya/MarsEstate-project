@@ -1,10 +1,10 @@
 <div class="flex-column space-around container">
-
-    <article class="text-center container">
+  <article class="text-center container">
         <h2>Наши услуги</h2>  
         <p> Компания Homemars готова оказать нашим клиентам комплексные услуги, связанные с покупкой и арендой недвижимости, а также её обслуживанием.</p>
         <p> Мы всегда готовы помочь во всём, что связано с жизнью и отдыхом на Марсе.</p>
     </article>
+<h3>Главная страница</h3>
 <hr>
 <section >
     <article class="text-center container">
@@ -13,15 +13,41 @@
         <p>Сегодня жители густонаселенных городов, уставшие от постоянной спешки и шума, начинают активно выбирать и приобретать загородную недвижимость, расположенную на Марсе. </p>
     </article>
 
-            <div class="container flex-row space-around flex-sm-column flex-s-column wrap" >
+<?php foreach ($props as $prop):?>
+<h4><? echo $prop['id_property'] ?></h4>
+<ul>
+    <li>
+            Категория:
+            <? echo $prop['name'] ?>
+    </li>
+    <li>
+    <img src="static/img/<?echo $prop['img_property']?>">
+    </li>
+    <li>Объект: <?echo $prop['name']?></li>
+
+    <li>Местонахождение:
+        <?echo ($prop['location'])?>
+    </li>
+    <li>Описание:
+    <?echo $prop['short_description']?>
+    </li>
+    <li>
+        <a href="/properties/<?echo $prop['name']?>/<?echo $prop['id_property']?>"class="button">Подробнее...</a>
+    </li>
+</ul>
+<?php endforeach;?>
+
+<hr> 
+ 
+            <!-- <div class="container flex-row space-around flex-sm-column flex-s-column wrap" >
 
            <div class="screen_container">
             <div class="screen"><a href="pages/page.html"><img src="/static/img/house1.jpg" alt="house" class="transition" ></a></div>
             <div class="description">
-                <h4>Дом 2 этажа</h4>
-                <p>S общ. / жил. — 86 м2 / м2</p>
-                <p>S кухни — 5.60 м2</p>
-                <p>S прихожей — 4.80 м2</p>
+                Дом 2 этажа
+                S общ. / жил. — 86 м2 / м2
+                S кухни — 5.60 м2
+                S прихожей — 4.80 м2
             </div>
 
            </div>
@@ -46,6 +72,9 @@
          <p>S прихожей — 4.80 м2</p>
         </div>
     </div>
+    <div class = "container">
+<a href="/allhouses/"class="button">Посмотреть все дома</a>
+<div>
 </section>
 <hr> 
 <section>
@@ -106,7 +135,12 @@
         </div>
         </div>
     </div>
+
+<div class = "container">
+<a href="/allflats/" class="button">Посмотреть все квартиры</a>
+<div>
 </section>
+
 <hr> 
 <section>
     <article class="text-center container ">
@@ -143,6 +177,9 @@
         </div>
     </div>
       </div>
+      <div class = "container">
+    <a href="/allLand/"class="button">Посмотреть все участки</a>
+    <div>
 </section>
-<hr> 
-    </div>
+<hr>  -->
+    </div> 

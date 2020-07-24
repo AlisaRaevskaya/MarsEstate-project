@@ -131,10 +131,10 @@
        </section>
     
     
-     <section class="news">
+     <section class="container">
         <h2 class="text-center head-text">Наши последние новости</h2>
     
-        <div class="flex-row space-around flex-sm-column sl2">
+        <div class="flex-sm-column flex-row space-around">
     
         <div class="flex-column space-around news_box">
             <div><img src="/static/img/per.jpg"></div>
@@ -157,6 +157,7 @@
         <div><p>Основатель SpaceX сообщил о планах основать на Марсе колонию. По его словам, к 2050 году на планете будут жить менее 1 млн человек</p></div>
         <div><a href="ilon.html" class="button_next">Подробнее>>></a></div>
     </div>
+
     <div class="flex-column space-around news_box">
         <div><img src="/static/img/mushroom.jpg" ></div>
         <div><h3>Эксперты NASA предложили строить дома на Марсе из грибов</h3></div>
@@ -170,6 +171,7 @@
         <div><p>Космическое агентство NASA опубликовало снимок марсианского «Большого Каньона» – региона Juventae Chasma.</p></div>
         <a href="ilon.html"class="button_next">Подробнее>>></a>
     </div>
-    
-    </div>
     </section>
+<div class = "container">
+<a href="/allNews/"class="button_next">Посмотреть все новости</a>
+</div>

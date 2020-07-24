@@ -1,108 +1,90 @@
 CREATE SCHEMA IF NOT EXISTS `mars_web` DEFAULT CHARACTER SET utf8 ;
 Use `mars_web`;
 
-CREATE TABLE IF NOT EXISTS `subscription`(
+CREATE TABLE IF NOT EXISTS `mars_web`.`subscription`(
 `id_subscription` INT NOT NULL auto_increment PRIMARY KEY,
-`email` NVARCHAR(45) NOT NULL)
-ENGINE = InnoDB
+`email` NVARCHAR(45) NOT NULL
+)ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-CREATE TABLE IF NOT EXISTS `news`(
+INSERT INTO subscription(`email`)VALUES
+('12ru@mail.ru'),
+('gkbsk@yandex.ru');
+
+DROP TABLE `news`;
+SELECT * FROM `news`;
+
+CREATE TABLE IF NOT EXISTS `mars_web`.`news`(
 `id_news`INT NOT NULL auto_increment PRIMARY KEY,
-`img` VARCHAR(255) NOT NULL,
-`title` VARCHAR(45) NOT NULL,
+`img` VARCHAR(45) NOT NULL,
+`title` VARCHAR(255) NOT NULL,
 `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-`desc` TINYTEXT NOT NULL,
+`desc` VARCHAR(255) NOT NULL,
 `text` LONGTEXT NOT NULL
 )ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+select version();
+
+INSERT INTO news(`img`, `title`, `desc`, `text`)VALUES
+('mushroom.jpg','Эксперты NASA предложили строить дома на Марсе из грибов','description','text'),
+('mushroom.jpg','Эксперты NASA предложили строить дома на Марсе из грибов','description','text');
+
+SELECT * FROM `category`;
+
+DROP TABLE `properties`;
+
 CREATE TABLE IF NOT EXISTS `properties`(
 `id_property`INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-`name` VARCHAR(45) NOT NULL,
-`description` VARCHAR(45) NOT NULL,
+`property_name` VARCHAR(45) NOT NULL,
 `location` VARCHAR(45) NOT NULL,
-`for_rent` ENUM ('false', 'true'),
-`for_sell` ENUM ('false', 'true'),
-`img_property`  int not null,
-CONSTRAINT `fk_img_property` 
-FOREIGN KEY (`img_property`)
-REFERENCES `img_properties`(`image_id`),
-`id_type_property` INT NOT NULL,
-CONSTRAINT `fk_id_type` 
-FOREIGN KEY (`id_type_property`)
-REFERENCES `types`(`id_type`)
+`img_property` VARCHAR(45) not null,
+`short_description`VARCHAR(255) NOT NULL,
+`description` longtext NOT NULL,
+`category_id` INT NOT NULL,
+CONSTRAINT `fk_prop_category`
+FOREIGN KEY (`category_id`)
+REFERENCES `category` (`id_category`)
+ON DELETE NO ACTION
 )ENGINE=InnoDB DEFAULT CHARSET = utf8mb4;
 
-create table if not exists `img_properties`(
-    image_id        int not null,
-    image_type      varchar(25) not null default '',
-    image           blob not null,
-    image_size      varchar(25) not null default '',
-    image_ctgy      varchar(25) not null default '',
-    image_name      varchar(50) not null default ''
-)ENGINE=InnoDB DEFAULT CHARSET = utf8mb4;
+insert into `properties`(`property_name`,`img_property`,`location`,`short_description`,`description`,`category_id`)
+VALUES
+('ДОМ','house1.jpg', 'ЦЕНТР', ' Дом 2 этажа S общ. / жил. — 86 м2 / м2 S кухни — 5.60 м2 S прихожей — 4.80 м2', 'Описание',1),
+('ДОМ','house2.jpg', 'ЦЕНТР', ' Дом 2 этажа S общ. / жил. — 86 м2 / м2 S кухни — 5.60 м2 S прихожей — 4.80 м2', 'Описание',1),
+('ДОМ','house3.jpg', 'ЦЕНТР', ' Дом 2 этажа S общ. / жил. — 86 м2 / м2 S кухни — 5.60 м2 S прихожей — 4.80 м2', 'Описание',1),
+('КВАРТИРА','room1.jpg', 'ЦЕНТР', ' Дом 2 этажа S общ. / жил. — 86 м2 / м2 S кухни — 5.60 м2 S прихожей — 4.80 м2', 'Описание',2),
+('КВАРТИРА','room2.jpg', 'ЦЕНТР', ' Дом 2 этажа S общ. / жил. — 86 м2 / м2 S кухни — 5.60 м2 S прихожей — 4.80 м2', 'Описание',2),
+('КВРАТИРА','room3.jpg', 'ЦЕНТР', ' Дом 2 этажа S общ. / жил. — 86 м2 / м2 S кухни — 5.60 м2 S прихожей — 4.80 м2', 'Описание',2),
+('ЗЕМЕЛЬНЫЙ УЧАСТОК','land1.jpg', 'ЦЕНТР', ' Дом 2 этажа S общ. / жил. — 86 м2 / м2 S кухни — 5.60 м2 S прихожей — 4.80 м2', 'Описание',3),
+('ЗЕМЕЛЬНЫЙ УЧАСТОК','land2.jpg', 'ЦЕНТР', ' Дом 2 этажа S общ. / жил. — 86 м2 / м2 S кухни — 5.60 м2 S прихожей — 4.80 м2', 'Описание',3),
+('ЗЕМЕЛЬНЫЙ УЧАСТОК','land3.jpg', 'ЦЕНТР', ' Дом 2 этажа S общ. / жил. — 86 м2 / м2 S кухни — 5.60 м2 S прихожей — 4.80 м2', 'Описание',3); 
 
-CREATE TABLE IF NOT EXISTS `types`(
-`id_type`INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-`type_name`VARCHAR(45) NOT NULL
-)ENGINE=InnoDB DEFAULT CHARSET = utf8mb4;
-
-CREATE TABLE IF NOT EXISTS `user_role`(
-`id_user` INT NOT NULL PRIMARY KEY, -- insert id
+CREATE TABLE IF NOT EXISTS `category`(
+`id_category` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 `name` VARCHAR(45) NOT NULL
-)ENGINE=InnoDB DEFAULT CHARSET = utf8mb4; 
+)ENGINE=InnoDB DEFAULT CHARSET = utf8mb4;
 
-INSERT INTO `user_role`(`id_user`,`name`)
-VALUES (1, 'Admin'); 
-INSERT INTO `user_role`(`id_user`,`name`)
-VALUES (10, 'User'); 
+insert into category(`id_category`,`name`)
+VALUES
+(1, 'Дома'),
+(2, 'Квартиры'),
+(3, 'Земельные участки');
 
 
+
+
+
+DROP TABLE `user_info`;
 CREATE TABLE IF NOT EXISTS `user_info`(
-`id_users` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-`login` VARCHAR(45) NOT NULL,
+`user_id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+`name` VARCHAR(45) NOT NULL,
 `password` NVARCHAR(45) NOT NULL,
+`re_password` NVARCHAR(45) NOT NULL,
 `email` NVARCHAR(45) NOT NULL,
-`first_name` VARCHAR(45) NOT NULL,
-`last_name` VARCHAR(45) NOT NULL,
-`country`VARCHAR(45) NOT NULL,
-`created at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-`id_user_role` INT NOT NULL,
-CONSTRAINT fk_user_role 
-FOREIGN KEY(`id_user_role`)
-REFERENCES `user_role`(`id_user`)
+`user_role`VARCHAR(45) default 'user',
+`checkRules`ENUM ('true', 'false')NOT NULL default 'true',
+`created at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )ENGINE=InnoDB DEFAULT CHARSET = utf8mb4;
 
-CREATE TABLE IF NOT EXISTS `permissions`(
-`id_permit` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-`description` VARCHAR(45) NOT NULL,
-`state` ENUM('true','false') NOT NULL default 'false'
-)ENGINE=InnoDB DEFAULT CHARSET = utf8mb4;
 
-INSERT INTO `permissions`(`description`,`state`)
-VALUE ('delete', 'true');-- 1
-INSERT INTO `permissions`(`id`,`description`,`state`)
-VALUE ('edit', 'true');-- 2
-INSERT INTO `permissions`(`description`,`state`)
-VALUE ('add_user', 'true' );-- 3
-INSERT INTO `permissions`( `description`,`state`)
-VALUE ('del_user', 'true');-- 4
-INSERT INTO `permissions`( `description`,`state`)
-VALUE ('view', 'true');-- 5
-INSERT INTO `permissions`( `description`,`state`)
-VALUE ('watch_additional_info', 'true');-- 6
-INSERT INTO `permissions`( `description`,`state`)
-VALUE ('comment_news', 'true');-- 7
-
-
-CREATE TABLE IF NOT EXISTS `user_role_permissions`(
-`user_id` INT NOT NULL ,
-`permit_id` INT NOT NULL,
-CONSTRAINT `user_fk` 
-FOREIGN KEY (`user_id`)
-REFERENCES `user_role`(`id_user`),
-CONSTRAINT `permit_fk` 
-FOREIGN KEY (`permit_id`)
-REFERENCES `permissions`(`id_permit`)
-)ENGINE=InnoDB DEFAULT CHARSET = utf8mb4;

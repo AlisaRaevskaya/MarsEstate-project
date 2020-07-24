@@ -10,6 +10,7 @@ use Alisa\MarsEstate\Controllers\AccountController;
 
 
 class AccountService {
+
     const USER_EXISTS='Такой пользователь уже существует';
     const EMAIL_EXISTS='Email уже существует';
     const PASS_NOT_SAME='Пароли не совпадают';
@@ -17,80 +18,89 @@ class AccountService {
     const INSERT_ERROR='Ошибка добавления';
     const AUTH_SUCCESS='Авторизация успешна!';
     const AUTH_ERROR='Ошибка Авторизации!';
-    const RULE_ERROR='Необходимо дать согласие с правилами сайта'
+    const RULE_ERROR='Необходимо дать согласие с правилами сайта';
+    const AUTH_PWD_ERROR='Неверный пароль';
 
-private $dbconnection;
+    private $dbConnection;
 
-public function __construct(){
+    public function __construct(){
 
-$this->dbconnection= DBConnection::getInstance();//new DB
-}
+    $this->dbConnection= DBConnection::getInstance();//new DB object
+    }
 
 //контроллер передает данные из post
-public function addUser(array $reg_data){
 
-//получаем данные
-$pwd = $reg_data['password'];
-$email = $reg_data['email'];
-$name = $reg_data['name'];
-$re_pwd = $reg_data['re_password'];
-$checkbox = $reg_data['checkRules'];
+    public function addUser(array $reg_data){
+       
+        $email = $reg_data['email'];
+        //проверка полей на уже имеющийся email в бд
+        if ($this->getUser($email)) return self::USER_EXISTS;
 
+        $pwd = $reg_data['password'];
+        $re_pwd = $reg_data['re_password'];
+        //проверка полей на cопадение паролей
+        if($this->getPassword($pwd) !== $re_pwd) return self::PASS_NOT_SAME;
+        //зашифровка пароля
+        $pwd = password_hash($pwd, PASSWORD_DEFAULT);
 
-//проверка полей на имеющиеся email
-if ($this->getUserEmail($email)) return self::EMAIL_EXISTS;
-//проверка полей на cопадение паролей
-if($this->getPassword($password) !== $re_pwd) return self::PASS_NOT_SAME;
-//проверка checkbox
-if(!$checkbox) return self::RULE_ERROR;
+        $checkbox = $reg_data['checkRules'];
+        //проверка checkbox
+        if(!$checkbox) return self::RULE_ERROR;
 
-//зашифровка пароля
-$pwd = password_hash($pwd, PASSWORD_DEFAULT);
+        $name = $reg_data['name'];
+        
 
-//запись данных в бд user_info
+        //запись данных в бд user_info
+        $sql ="INSERT INTO user_info 
+        (user_id, name, password, re_password, email, checkRules)
+        VALUES(:id, :user_name, :user_pwd, :user_re_pass,:user_email, :checkRules);";
+        $params=[
+            'id'=>$this->dbConnection->getConnection()->lastInsertId(),
+            'user_name'=>$name,
+            'user_pwd'=>$pwd,
+            'user_re_pass'=>$re_pwd,
+            'user_email'=>$email, 
+            'checkRules'=>$checkbox 
+        ];
+        return $this->dbConnection->executeSql($sql, $params)? self:: REG_SUCCESS : self::INSERT_ERROR;
+    }
 
-$sql ="INSERT INTO user_info (name, email, password, re_password, agreement){//названия столбцов
-    VALUES(:user_name,:user_email, :user_pwd, :user_re_pass, :agreement);";//
-$params=[
-    'user_id'=>$this->dbconnection->getConnection()->lastInsertId(),
-    'user_name'=>$name,
-    'user_email'=>$email, 
-    'user_pwd'=>$pwd,
-    'user_re_pass'=>$re_pwd,
-    'agreement'=>$checkbox
-];
-return $this->dbconnection->executeSql($sql, $params)? self:: REG_SUCCESS: self::INSERT_ERROR;
+    public function authUser($auth_data){
 
-}
-
-public function authUser($auth_data){
-    $pwd = $reg_data['password'];
-    $email = $reg_data['email'];
+    $password = $auth_data['auth_password'];
+    $email = $auth_data['auth_email'];
     //валидация
+    //обращаемся к бд, ищем соотвествия, если да, возвращаем ответ
 
-    
-}
-
-//получаем email из бд
-private function getUserEmail($email){
-
-$sql = 'SELECT * FROM users_info Where email=:email;';
-$params = [
-    'email' => $email
-];
-$user_email = $this->dbconnection->execute($sql, $params, false);
-//если флаг false-1 запись
-return $user_email;//соединяемся с бд и вызываем метод 
-}
-
-//получаем password из бд
-private function getPassword($password){
-    $sql = 'SELECT * FROM users_info Where password=:pwd;';
-    $params = [
-        'password'=>$pwd
-    ];
-    $user_password =$this->dbconnection->execute($sql, $params, false);
-    return $user_password;
+        $user =$this->getUser($email);
+        if(!$user)return self::AUTH_ERROR;
+        if(!password_verify($password, $user['password'])){
+            return self::AUTH_PWD_ERROR;
         }
+        return self::AUTH_SUCCESS;
+    }
 
+        //получаем email из бд
+    private function getUser($email){
+
+        $sql = 'SELECT * FROM user_info Where email=:email;';
+        $params = [
+            'email' => $email
+        ];
+        $user = $this->dbConnection->execute($sql, $params, false);
+        //если флаг false-1 запись
+        return $user;//соединяемся с бд и вызываем метод 
+    }
+
+        //получаем password из бд
+    private function getPassword($password){
+
+            $sql = 'SELECT * FROM user_info Where password=:password;';
+            $params = [
+                'password'=>$password
+            ];
+            $user_password = $this->dbConnection->execute($sql, $params, false);
+            return $user_password;
+    }
+    
 }

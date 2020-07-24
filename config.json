@@ -12,26 +12,40 @@
       },
       "services": {
         "path": "/services/",
-        "controller": "Alisa\\MarsEstate\\Controllers\\ServicesController::services",
+        "controller": "Alisa\\MarsEstate\\Controllers\\PropertiesController::services",
         "method": "GET"
       },
       "contacts": {
         "path": "/contacts/",
         "controller": "Alisa\\MarsEstate\\Controllers\\ContactsController::contacts",
         "method": "GET"
-      },
-"reg_user": {
-        "path": "/registration/",
+      },     
+      "show form": {
+        "path": "/registration_form/",
+        "controller": "Alisa\\MarsEstate\\Controllers\\AccountController::showForm",
+        "method": "GET"
+      },  
+      "reg_user": {
+        "path":"/registration/",
         "controller": "Alisa\\MarsEstate\\Controllers\\AccountController::regUser",
         "method": "POST"
       },
-"auth_user":{
-  "path": "/auth",
-  "controller": "Alisa\\MarsEstate\\Controllers\\AccountController::authUser",
-  "method": "POST"
-       }
-
-      },
+      "auth_user":{
+        "path": "/authorisation/",
+        "controller": "Alisa\\MarsEstate\\Controllers\\AccountController::authUser",
+        "method": "POST"
+        },
+      "account": {
+          "path": "/account/",
+          "controller": "Alisa\\MarsEstate\\Controllers\\AccountController::account",
+          "method": "GET"
+        },
+          "news": {
+            "path": "/allNews/",
+            "controller": "Alisa\\MarsEstate\\Controllers\\NewsController::showAllNews",
+            "method": "GET"
+          }
+        },
 "db": {
     "server": "127.0.0.1",
     "dbname": "mars_web",
