@@ -15,6 +15,16 @@
         "controller": "Alisa\\MarsEstate\\Controllers\\PropertiesController::services",
         "method": "GET"
       },
+      "service category": {
+        "path": "/services/{category}",
+        "controller": "Alisa\\MarsEstate\\Controllers\\PropertiesController::showCategory",
+        "method": "GET"
+      },
+      "service by id":{
+        "path": "/services/{category}/{id}",
+        "controller": "Alisa\\MarsEstate\\Controllers\\PropertiesController::showPropById",
+        "method":"GET"
+      },
       "contacts": {
         "path": "/contacts/",
         "controller": "Alisa\\MarsEstate\\Controllers\\ContactsController::contacts",

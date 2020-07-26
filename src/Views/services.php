@@ -1,185 +1,116 @@
 <div class="flex-column space-around container">
-  <article class="text-center container">
+
+    <article class="text-center container">
         <h2>Наши услуги</h2>  
         <p> Компания Homemars готова оказать нашим клиентам комплексные услуги, связанные с покупкой и арендой недвижимости, а также её обслуживанием.</p>
         <p> Мы всегда готовы помочь во всём, что связано с жизнью и отдыхом на Марсе.</p>
     </article>
-<h3>Главная страница</h3>
-<hr>
-<section >
-    <article class="text-center container">
-        <h1>ПРОДАЖА ДОМОВ</h1>
-        <p>Собственный частный дом или коттедж – это и показатель благосостояния человека, и конечный итог стремления к спокойствию и надёжности.</p> 
-        <p>Сегодня жители густонаселенных городов, уставшие от постоянной спешки и шума, начинают активно выбирать и приобретать загородную недвижимость, расположенную на Марсе. </p>
-    </article>
+    <hr>
 
-<?php foreach ($props as $prop):?>
-<h4><? echo $prop['id_property'] ?></h4>
-<ul>
-    <li>
-            Категория:
-            <? echo $prop['name'] ?>
-    </li>
-    <li>
-    <img src="static/img/<?echo $prop['img_property']?>">
-    </li>
-    <li>Объект: <?echo $prop['name']?></li>
+    <section>
+        <article class="text-center container">
+            <h1>ПРОДАЖА ДОМОВ</h1>
+            <p>Собственный частный дом или коттедж – это и показатель благосостояния человека, и конечный итог стремления к спокойствию и надёжности.</p> 
+            <p>Сегодня жители густонаселенных городов, уставшие от постоянной спешки и шума, начинают активно выбирать и приобретать загородную недвижимость, расположенную на Марсе. </p>
+        </article>
 
-    <li>Местонахождение:
-        <?echo ($prop['location'])?>
-    </li>
-    <li>Описание:
-    <?echo $prop['short_description']?>
-    </li>
-    <li>
-        <a href="/properties/<?echo $prop['name']?>/<?echo $prop['id_property']?>"class="button">Подробнее...</a>
-    </li>
-</ul>
-<?php endforeach;?>
-
-<hr> 
- 
-            <!-- <div class="container flex-row space-around flex-sm-column flex-s-column wrap" >
-
-           <div class="screen_container">
-            <div class="screen"><a href="pages/page.html"><img src="/static/img/house1.jpg" alt="house" class="transition" ></a></div>
-            <div class="description">
-                Дом 2 этажа
-                S общ. / жил. — 86 м2 / м2
-                S кухни — 5.60 м2
-                S прихожей — 4.80 м2
+        <div class=" flex-row space-around flex-sm-column flex-s-column wrap">
+        
+            <?php foreach ($allHouses as $house):?>
+                <div class="screen_container">
+                    <h2><? echo $house['property_name'] ?></h2>
+                    <div class="screen">
+                        <img src="/static/img/<?echo $house['img_property']?>" alt="house" class="transition" >
+                    </div>
+                    <h4>Район:<?echo $house['location']?></h4>
+                    <div class="description">
+                        <p>S общ. / жил.—  <?echo $house['s_main']?> м2 </p>
+                        <p>S кухни — <?echo $house['s_kitchen']?> м2 </p>
+                        <p>S прихожей—  <?echo $house['s_corridor']?> м2 </p>
+                        <p>Цена:<?echo $house['price']?> рублей</p>
+                    </div>
+                    <div>
+                        <a href="/services/<?echo $house['name']?>/<?echo $house['id_property']?>"class="button">Подробнее...</a>
+                    </div>
+                </div>
+            <?php endforeach;?>
+            <div class = "container">
+            <a href="/services/<?echo $house['name']?>" class="button">Посмотреть все дома</a>
             </div>
-
-           </div>
-
-          <div class="screen_container">
-          <div class="screen"><a href="pages/page.html"><img src="/static/img/house2.jpg"alt="house" class="transition" ></a></div>
-          <div class="description">
-            <h4>Дом 2 этажа</h4>
-            <p>S общ. / жил. — 86 м2 / м2</p>
-            <p>S кухни — 5.60 м2</p>
-            <p>S прихожей — 4.80 м2</p>
         </div>
-    
-        </div>
+    </section>
+    <hr> 
 
-          <div class="screen_container">
-          <div class="screen"><a href="pages/page.html"><img src="/static/img/house3.jpg" alt="house" class="transition" ></a></div> 
-          <div class="description">
-          <h4>Дом 3 этажа</h4>
-         <p>S общ. / жил. — 215 м2 / 78.00 м2</p>
-         <p>S кухни — 31 м2</p>
-         <p>S прихожей — 4.80 м2</p>
-        </div>
-    </div>
-    <div class = "container">
-<a href="/allhouses/"class="button">Посмотреть все дома</a>
-<div>
-</section>
-<hr> 
-<section>
-    <article class="text-center container">
-        <h1>ВЫБЕРИТЕ РАЙОН</h1>
-        <p>Если вы хотите купить земельный участок под строительство дома, то на сайте Homestars легко сможете найти подходящий вариант,
-             поскольку здесь сформирован и регулярно обновляется каталог объявлений о продаже земли на Марсе </p>
-            </article>
-    <div class="container flex-row space-around flex-sm-column flex-s-column wrap">
-            <div class="screen_container">
-             <div class="screen"><a href="pages/page.html"><img src="/static/img/karta_marsa.jpg" alt="geomap" class="transition" /></a></div>
-             <div><h3 class="text-center">Карта географическая</h3></div>
-            </div>
-
-             <div class="screen_container" >
-             <div class="screen"><a href="pages/page.html"><img src="/static/img/map2.jpg" alt="map" class="transition" ></a></div>
-             <div><h3 class="text-center">Карта полушарий</h3></div>
-             </div>
-            </div>
-</section>
-<hr> 
-<section>
+    <section>
             <article class="text-center container" >
-                <h1>АРЕНДА ЖИЛЬЯ</h1>
+                <h1>ПРОДАЖИ КВАРТИР</h1>
                 <p>Собственный частный дом или коттедж – это и показатель благосостояния человека, и конечный итог стремления к спокойствию и надёжности. 
                     Сегодня жители густонаселенных городов, уставшие от постоянной спешки и шума, начинают активно выбирать и приобретать загородную недвижимость, расположенную на Марсе. </p>
             </article>
 
-            <div class="container flex-row space-around flex-sm-column flex-s-column wrap">
-           <div class="screen_container">
-            <div class="screen"><a href="pages/page.html"><img src="/static/img/room3.jpg" alt="renthouse" class="transition"></a></div>
-            <div class="description">
-                <h4>Квартира 3 комнаты</h4>
-                <p>S общ. / жил. — 108.10 м2 / 43.90 м2</p>
-                <p>S кухни — 5.60 м2</p>
-                <p>S прихожей — 4.80 м2</p>
+            <div class=" flex-row space-around flex-sm-column flex-s-column wrap">
+                <?php foreach ($allFlats as $flat):?>
+                    <div class="screen_container">
+                        <h2><? echo $flat['property_name'] ?></h2>
+                        <div class="screen">
+                            <img src="/static/img/<?echo $flat['img_property']?>" alt="house" class="transition" >
+                        </div>
+                        <h4>Район:<?echo $flat['location']?></h4>
+                        <div class="description">
+                            <h5>Общая площадь</h5>
+                            <p>S общ. / жил. — <?echo $flat['s_main']?>м2</p>
+                            <p>S кухни — <?echo $flat['s_kitchen']?>м2</p>
+                            <p>S прихожей — <?echo $flat['s_corridor']?>м2</p>
+                            <p>Цена:<?echo $flat['price']?>рублей</p>
+                        </div>
+                        <div>
+                        <a href="/services/<?echo $flat['name']?>/<?echo $flat['id_property']?>"class="button">Подробнее...</a>
+                        </div>
+                    </div>
+                <?php endforeach;?>
+
+                <div class = "container">
+            <a href="/services/<?echo $flat['name']?>" class="button">Посмотреть все квартиры</a>
             </div>
             </div>
+    </section>
+    <hr>
         
 
-            <div class="screen_container">
-            <div class="screen"><a href="pages/page.html"><img src="/static/img/room1.jpg" alt="renthouse" class="transition" ></a></div>
-            <div class="description">
-                <h4>Квартира 2 комнаты</h4>
-                <p>S общ. / жил. — 78.10 м2 / 43.90 м2</p>
-                <p>S кухни — 5.60 м2</p>
-                <p>S прихожей — 4.80 м2</p>
-            </div>
-            </div>
-
-          <div class="screen_container">
-          <div class="screen"><a href="pages/page.html"><img src="/static/img/room2.jpg" alt="renthouse" class="transition" ></a></div>
-          <div class="description">
-            <h4>Квартира 1 комната</h4>
-            <p>S общ. / жил. — 58.10 м2 / 43.90 м2</p>
-            <p>S кухни — 5.60 м2</p>
-            <p>S прихожей — 4.80 м2</p>
-        </div>
-        </div>
-    </div>
-
-<div class = "container">
-<a href="/allflats/" class="button">Посмотреть все квартиры</a>
-<div>
-</section>
-
-<hr> 
-<section>
-    <article class="text-center container ">
-        <h1>ЗЕМЕЛЬНЫЕ УЧАСТКИ</h1>
-        <p>Если вы хотите купить земельный участок под строительство дома, то на сайте Homestars легко сможете найти подходящий вариант,
+    <section>
+        <article class="text-center container ">
+            <h1>ЗЕМЕЛЬНЫЕ УЧАСТКИ</h1>
+            <p>Если вы хотите купить земельный участок под строительство дома, то на сайте Homestars легко сможете найти подходящий вариант,
              поскольку здесь сформирован и регулярно обновляется каталог объявлений о продаже земли на Марсе </p>
         </article>
-    <div class="container flex-row space-around flex-sm-column flex-s-column wrap">
 
-        <div class="screen_container">
-          <div class="screen"><a href="pages/page.html"><img src="/static/img/earth.jpg" alt="land" class="transition" ></a></div>
-          <div class="description"><h4>Участок 6 сот.</h4>
-            <p>Водопровод,газ,электричество</p>
-            <p>Удаленность: 15 км</p>
-            <p>30 метров до реки</p>
-        </div>
-        </div>
+        <div class="container flex-row space-around flex-sm-column flex-s-column wrap">
 
-        <div class="screen_container">
-        <div class="screen"><a href="pages/page.html"><img src="/static/img/earth2.jpg" alt="land" class="transition" ></a></div>
-        <div class="description"><h4>Участок 20 сот.</h4>
-            <p>Водопровод,газ,электричество</p>
-            <p>Удаленность: 25 км</p>
-            <p>Черта города</p>
-      </div>
-      </div>
-    
-        <div class="screen_container">
-        <div class="screen"><a href="pages/page.html"><img src="/static/img/earth4.jpg" alt="land" class="transition" ></a></div>
-        <div class="description" ><h4>Участок 10 сот.</h4>
-            <p>Водопровод,газ,электричество</p>
-            <p>Удаленность: 75 км</p>
-            <p>Черта города</p>
+            <?php foreach ($allLand as $land):?>
+                <div class="screen_container">
+                    <h2><? echo $land['property_name']?></h2>
+                    <div class="screen">
+                        <img src="/static/img/<?echo $land['img_property']?>" alt="house" class="transition" >
+                    </div>
+
+                    <h4>Район:<?echo $land['location']?></h4>
+
+                    <div class="description">
+                        <h5>Общая площадь</h5>
+                        <p>S общ. / жил. — <?echo $land['s_main']?> сот.</p>
+                        <p>Удобства: <?echo $land['utilities']?></p>
+                        <p>Цена:<?echo $land['price']?> рублей</p>
+                    </div>
+                    <div>
+                        <a href="/services/<?echo $land['name']?>/<?echo $land['id_property']?>"class="button">Подробнее...</a>
+                    </div>
+                </div>
+            <?php endforeach;?>
+
+            <div class = "container">
+            <a href="/services/<?echo $land['name']?>" class="button">Посмотреть все участки</a>
+            </div>
         </div>
-    </div>
-      </div>
-      <div class = "container">
-    <a href="/allLand/"class="button">Посмотреть все участки</a>
-    <div>
-</section>
-<hr>  -->
-    </div> 
+    </section>
+
+</div>
