@@ -29,9 +29,20 @@ public function validateForm(){
   
   return $this->errors;
 }
+
+public function validateSubForm(){
+
+  $this->validateEmail();
+  
+  return $this->errors;
+}
+
+
+
 public function addError($key, $message){
   $this->errors[$key] = $message;
 }
+
 
 public function validateName(){
   $val =trim($this->data['name']);
@@ -49,7 +60,7 @@ public function validateName(){
 public function validateEmail(){
   $val =trim($this->data['email']);
   if(empty($val)){
-    $this->addError('email','поле не может быть пустым');
+    $this->addError('email','Поле не может быть пустым');
   }else{
     if (!filter_var($val, FILTER_VALIDATE_EMAIL)){
       $this->addError( 'email',"Invalid email format");

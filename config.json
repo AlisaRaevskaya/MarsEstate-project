@@ -55,6 +55,11 @@
           "controller": "Alisa\\MarsEstate\\Controllers\\AccountController::account",
           "method": "GET"
         },
+        "subscription": {
+          "path": "/subscription/",
+          "controller": "Alisa\\MarsEstate\\Controllers\\IndexController::subscription",
+          "method": "POST"
+        },
           "news": {
             "path": "/allNews/",
             "controller": "Alisa\\MarsEstate\\Controllers\\NewsController::showAllNews",

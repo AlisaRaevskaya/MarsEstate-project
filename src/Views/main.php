@@ -285,8 +285,11 @@
            <p>Мы будем держать вас в курсе самой последней информации о вашей покупке,
            а также о специальных предложениях, предлагаемых вам только HomeMars.com.</p>
        </div>
-       <div>
-               <input type ="email" name="subscribe" placeholder ="Ваш email" class ="sub_input">
-               <input type ="submit" class ="sub_button" value="Подписаться">
+       <div><form action= "/subscription/" method="POST" name="sub_Form">
+               <input type ="email" name="sub_email" placeholder ="Ваш email" class ="sub_input">
+               <span></span>
+               <input type ="submit" class ="sub_button" value="Подписаться" name="submit">
+               </form>
        </div>
            </section>
+           <script src="static/js/subscription.js"></script>

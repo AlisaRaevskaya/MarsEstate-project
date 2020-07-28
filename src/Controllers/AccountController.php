@@ -4,7 +4,6 @@ namespace Alisa\MarsEstate\Controllers;
 
 use Alisa\MarsEstate\Base\Controller;
 use Alisa\MarsEstate\Models\AccountService;
-use Alisa\MarsEstate\Base\Request;
 use Alisa\MarsEstate\Models\Validator;
 
 class AccountController extends Controller
