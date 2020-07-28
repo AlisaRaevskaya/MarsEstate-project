@@ -2,40 +2,44 @@
 
 namespace Alisa\MarsEstate\Models;
 
-use Alisa\MarsEstate\Base\Request;
 
 class Validator{
 
 private $data;
 private $errors=[];
-private static $fields =['name','email', 'password','checkbox'];
 
-public function __constructor(){
-  $this->data = request->post();
+// private static $fields = ['name','email', 'password','re_password','checkbox'];
+// private static $auth_fields = ['email', 'password'];
 
-  
+public function setData($post_data){
+ $this->data = $post_data;
 }
+
+public function getData(){
+ return $this->data;
+ }
+
 public function validateForm(){
-  foreach(self::$fields as $field){
-    if(!array_key_exists($field, $this->data)){
-      trigger_error("Поля нет в форме");
-      return;
-    }
-  }
+
   $this->  validateEmail();
   $this->  validatePassword();
   $this->  validateName();
-  $this-> validateCheckbox()
+  $this-> validateCheckbox();
+  $this->validateCPassword();
+  
   return $this->errors;
+}
+public function addError($key, $message){
+  $this->errors[$key] = $message;
 }
 
 public function validateName(){
   $val =trim($this->data['name']);
   if(empty($val)){
-    $this->addError('name','поле не может быть пустым')
+    $this->addError('name','поле не может быть пустым');
   }else {
-    if(!preg_match("^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$", $val)) {
-      $this->addError( 'name',"Имя пользователя может содержать буквы и цифры, первый символ обязательно буква):";
+    if(!preg_match("/[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/", $val)) {
+      $this->addError( 'name',"Имя пользователя может содержать буквы и цифры, первый символ обязательно буква");
   }
 }
 }
@@ -45,44 +49,50 @@ public function validateName(){
 public function validateEmail(){
   $val =trim($this->data['email']);
   if(empty($val)){
-    $this->addError('email','поле не может быть пустым')
+    $this->addError('email','поле не может быть пустым');
   }else{
     if (!filter_var($val, FILTER_VALIDATE_EMAIL)){
       $this->addError( 'email',"Invalid email format");
   }
- 
   }
 }
 
-
 public function validateCheckbox(){
-  $val =trim($this->data['checkRules']);
-  if (!{filter_var($val, FILTER_VALIDATE_BOOLEAN)){
-    $this->addError( 'checkRules',"Must be checked");
+  $val =$this->data['checkRules'];
+  
+if (!isset($this->data['checkRules'])){
+    $val = 0;
+    $this->addError( 'checkRules',"Необходимо согласиться с правилами");
   };
 }
 
-public function addError($key, $message){
-  $this->errors[$key] = $message;
-}
 
 public function validatePassword(){
   $val =trim($this->data['password']);
   if(empty($val)){
-    $this->addError('password','поле не может быть пустым')
+    $this->addError('password','поле не может быть пустым');
   }else{
-    if(!preg_match("?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$", $val)) {
-      $this->addError( 'password',"Строчные и прописные латинские буквы, цифры, спецсимволы. Минимум 8 символов";
+    if(!preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,12}$/', $val)){
+      $this->addError( 'password',"Строчные и прописные латинские буквы, цифры, спецсимволы. Минимум 8 символов");
   }
-   
+  }
+}
+public function validateCPassword(){
+  $val =trim($this->data['re_password']);
+  $pass =trim($this->data['password']);
+  if(empty($val)){
+    $this->addError('password','поле не может быть пустым');
+  }else{
+    if($pass !== $val){
+    $this->addError('re_password',"Пароли не совпадают");
+  }
   }
 }
 
 
+
+
+
+}
 
   
- //Check the name and make sure that it isn't a blank/empty string.
- if(strlen(trim($name)) === 0){
-  //Blank string, add error to $errors array.
-  $errors[] = "You must enter your name!";
-}

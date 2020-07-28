@@ -105,17 +105,16 @@ LEFT JOIN  `category` c
 ON c.`id_category` = p.`category_id`
 WHERE c.`name` = 'house';
 
-
 DROP TABLE `user_info`;
 CREATE TABLE IF NOT EXISTS `user_info`(
 `user_id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 `name` VARCHAR(45) NOT NULL,
-`password` NVARCHAR(45) NOT NULL,
-`re_password` NVARCHAR(45) NOT NULL,
+`password` NVARCHAR(255) NOT NULL,
 `email` NVARCHAR(45) NOT NULL,
 `user_role`VARCHAR(45) default 'user',
 `checkRules`ENUM ('true', 'false')NOT NULL default 'true',
 `created at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )ENGINE=InnoDB DEFAULT CHARSET = utf8mb4;
+
 
 

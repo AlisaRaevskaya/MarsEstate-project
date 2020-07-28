@@ -13,10 +13,8 @@
     <link rel="stylesheet" href="/static/slick/slick.css"/>
     <link rel="stylesheet" href="/static/slick/slick-theme.css"/>
     <title><?echo $page_title; ?></title>
-    <!--общие библиотек-->
-    <script src="/static/js/libs/common.js"></script> 
-    <script src="/static/js/jqueri-1.11.0.min.js"></script>
 <script src="/static/js/jquery-migrate-1.2.1min.js"></script>
+
 </head>
 <header class="general">
 <div class="absolute">
@@ -63,6 +61,12 @@
 <body>
 
 <main>
+
+<? if (isset($_SESSION['email'])): ?>
+<li><a href="/account">Личный кабинет</a></li>
+<a href="/logout">Выйти</a>
+<?endif?>
+
 <?include_once $content ?></main>
 
 <footer class="flex-row space-around">
@@ -120,8 +124,6 @@
 </div>
 </footer>
 
-
-<script src="/static/js/auth.js"></script>
 <script src="/static/js/general.js"></script>
 
 <script src="/static/slick/slick.min.js"></script>

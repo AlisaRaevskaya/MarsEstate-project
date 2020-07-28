@@ -10,12 +10,12 @@
         <div class="inputBox">
     
         <label for="login" class="labelText">Ваш email</label>
-        <input required type="text" id="login"name="auth_email" class="userInput">
-        <span></span>
+        <input required type="email" id="login"name="email" class="userInput">
+        <span class ="error"></span>
        </div>
        <div class="inputBox">
         <label for="pass"class="labelText">Ваш пароль</label> 
-        <input required type="password" id="pass"name="auth_password" class="userInput">
+        <input required type="password" id="pass"name="password" class="userInput">
         <span></span>
        </div>
        <input type="submit" value="Войти" class="button "/>
@@ -38,28 +38,31 @@
 
     <div class="inputBox">
     <label for="name_reg" class="labelText">Ваше имя</label>
-    <input required type="text" id="name_reg" name="name" class="userInput">
-    <span></span>
+    <input required type="text" id="name_reg" name="name" class="userInput" value="<?echo htmlspecialchars($_POST["name"]) ?? ''?>">
+    <span class ="error"><?php echo $errors["name"]?></span>
+    
    </div>
         <div class="inputBox">
         <label for="email"class="labelText">Ваш email</label>
         <input required type="email" id="email"name="email" class="userInput">
-        <span></span>
+        <span class ="error"> <?php echo $errors["email"]?></span>
         </div>
     
         <div class="inputBox">
         <label for="pass2"class="labelText">Ваш пароль</label> 
         <input required type="password" id ="pass2"name="password" class="userInput">
-        <span></span>
+        <span class ="error"><?php echo $errors["password"] ?? ''?></span>
+        
         </div>
         <div class="inputBox">
         <label for="repeat_pass"class="labelText">Повторите пароль</label> 
         <input required type="password" id ="repeat_pass" name="re_password" class="userInput">
-        <span></span>
+        <span class ="error"> <?php echo $errors["re_password"] ?? ''?></span>
+       
         </div>
         
         <div class="recover">
-        <input required type="checkbox" id="rules_ok" name="checkRules">
+        <input required checked type="checkbox" id="rules_ok" name="checkRules" value=1>
         <span></span>
         <label for="rules_ok">Ознакомлен(-а) и принимаю 
         <br><a href="#"class="terms">условия регистрации</a></br></label>
@@ -73,3 +76,4 @@
 
 <script src="/static/js/form.js"></script>
 <script src="/static/js/validator.js"></script>
+<script src="/static/js/auth.js"></script>

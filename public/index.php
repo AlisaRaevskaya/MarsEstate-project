@@ -2,7 +2,6 @@
 
 session_start();
 require_once __DIR__ . '/../vendor/autoload.php';
-var_dump($_SERVER['REQUEST_URI']);
 
 $request = new \Alisa\MarsEstate\Base\Request();
 

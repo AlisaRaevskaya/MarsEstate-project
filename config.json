@@ -45,6 +45,11 @@
         "controller": "Alisa\\MarsEstate\\Controllers\\AccountController::authUser",
         "method": "POST"
         },
+        "logout": {
+          "path": "/logout",
+          "controller": "Alisa\\MarsEstate\\Controllers\\AccountController::logout",
+          "method": "GET"
+        },
       "account": {
           "path": "/account/",
           "controller": "Alisa\\MarsEstate\\Controllers\\AccountController::account",
