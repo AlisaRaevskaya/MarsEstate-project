@@ -50,22 +50,27 @@
           "controller": "Alisa\\MarsEstate\\Controllers\\AccountController::logout",
           "method": "GET"
         },
-      "account": {
-          "path": "/account/",
-          "controller": "Alisa\\MarsEstate\\Controllers\\AccountController::account",
-          "method": "GET"
-        },
+     "feedback": {
+      "path": "/feedback/",
+      "controller": "Alisa\\MarsEstate\\Controllers\\ContactsController::feedSend",
+      "method": "POST"
+     },
         "subscription": {
           "path": "/subscription/",
           "controller": "Alisa\\MarsEstate\\Controllers\\IndexController::subscription",
           "method": "POST"
         },
           "news": {
-            "path": "/allNews/",
+            "path": "/news/all",
             "controller": "Alisa\\MarsEstate\\Controllers\\NewsController::showAllNews",
             "method": "GET"
+          },
+          "news by id":{
+            "path": "/news/{id_news}",
+            "controller": "Alisa\\MarsEstate\\Controllers\\NewsController::showNewsByID",
+            "method":"GET"
           }
-        },
+      },
 "db": {
     "server": "127.0.0.1",
     "dbname": "mars_web",

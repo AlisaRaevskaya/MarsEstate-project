@@ -7,27 +7,6 @@ use Alisa\MarsEstate\Base\Service;
 class PropertyService extends Service{
 
 
-    // CREATE TABLE IF NOT EXISTS `properties`(
-    //     `id_property`INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    //     `property_name` VARCHAR(45) NOT NULL,
-    //     `location` VARCHAR(45) NOT NULL,
-    //     `img_property` VARCHAR(45) not null,
-    //     `short_description`VARCHAR(255) NOT NULL,
-    //     `description` longtext NOT NULL,
-    //     `category_id` INT NOT NULL,
-    //     CONSTRAINT `fk_prop_category`
-    //     FOREIGN KEY (`category_id`)
-    //     REFERENCES `category` (`id_category`)
-    //     ON DELETE NO ACTION
-    //     )ENGINE=InnoDB DEFAULT CHARSET = utf8mb4;
-        
-        
-    //     CREATE TABLE IF NOT EXISTS `category`(
-    //     `id_category` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    //     `name` VARCHAR(45) NOT NULL
-    //     )ENGINE=InnoDB DEFAULT CHARSET = utf8mb4;
-
-
     public function getallProperties(){
         //массив со всеми объектами
         $result = [];

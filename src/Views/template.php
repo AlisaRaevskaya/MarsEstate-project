@@ -13,8 +13,11 @@
     <link rel="stylesheet" href="/static/slick/slick.css"/>
     <link rel="stylesheet" href="/static/slick/slick-theme.css"/>
     <title><?echo $page_title; ?></title>
-<script src="/static/js/jquery-migrate-1.2.1min.js"></script>
-
+<script src="/static/slick/slick.min.js"></script>
+<script src="/static/slick/slick.js"></script> 	
+<script src="/static/js/slick.js"></script> 	
+<script src="static/js/jqueri-1.11.0.min.js"></script>
+<script src="static/js/jquery-migrate-1.2.1min.js"></script>
 </head>
 <header class="general">
 <div class="absolute">
@@ -39,7 +42,7 @@
             <ul class="submenu">
             <li><a href="/about/faq/;">FAQ</a></li>
             <li><a href="/about/facts/">Факты о марсе</a></li>
-            <li><a href="/about/press/">Пресса о нас</a></li>
+            <li><a href="/news/all">Наши новости</a></li>
         </ul> 
         </li>
         <li>
@@ -125,9 +128,5 @@
 </footer>
 
 <script src="/static/js/general.js"></script>
-
-<script src="/static/slick/slick.min.js"></script>
-<script src="/static/js/slick.js"></script> 	
-<!-- <script src="/static/js/slider.js"></script>  -->
 </body>
 </html>

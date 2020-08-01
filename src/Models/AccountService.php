@@ -13,8 +13,8 @@ class AccountService{
     const USER_EXISTS='Такой пользователь уже существует';
     const PASS_NOT_SAME='Пароли не совпадают';
     const REG_SUCCESS='Регистрация успешна!';
-    const REG_ERROR='Ошибка регистрации';
-    const AUTH_ERROR ='Ошибка авторизации';
+    const INSERT_ERROR='Данные не добавились';
+    const EMAIL_ERROR ='Пользователь с таким email не зарегистрирован';
     const AUTH_SUCCESS ='Авторизация успешна';
     const RULE_ERROR='Необходимо дать согласие с правилами сайта';
     const AUTH_PWD_ERROR='Неверный пароль';
@@ -31,26 +31,30 @@ class AccountService{
 //контроллер передает данные из post
 
     public function addUser(array $reg_data){
-        $checkbox = $reg_data['checkRules'];
+       
+        if (isset($reg_data))
+        {$this->validator->setData($reg_data);
+        $errors=$this->validator->validateForm();
+        }
 
-        $name = $reg_data['name'];
-        $pwd = $reg_data['password'];
-        $re_pwd = $reg_data['re_password'];
+        if(!empty($errors)) return $errors;
+       
 
+        //если пустой массив и нет ошибок, объявляем переменные полей
+         $checkbox = $reg_data['checkRules'];
+         $name = $reg_data['name'];
+         $pwd = $reg_data['password'];
+         $re_pwd = $reg_data['re_password'];
         $email = $reg_data['email'];
-        //проверка полей на уже имеющийся email в бд
+
+        //проверка на уже имеющийся email в бд
         if ($this->getUser($email)) return self::USER_EXISTS;
-      
         //шифрование пароля
         $pwd = password_hash($pwd, PASSWORD_DEFAULT);
-
-
         //запись данных в бд user_info
         $sql ="INSERT INTO user_info 
         (user_id, name, password, email, checkRules)
         VALUES(:id, :user_name, :user_pwd,:user_email, :checkRules);";
-        
-
         $params=[
             'id'=>$this->dbConnection->getConnection()->lastInsertId(),
             'user_name'=>$name,
@@ -58,13 +62,17 @@ class AccountService{
             'user_email'=>$email, 
             'checkRules'=>$checkbox 
         ];
- 
-        return $this->dbConnection->executeSql($sql, $params)? self:: REG_SUCCESS : self::REG_ERROR;
-        
-
+        return $this->dbConnection->executeSql($sql, $params)? self:: REG_SUCCESS : self::INSERT_ERROR;  
     }
 
     public function authUser($auth_data){
+
+        if (isset($auth_data)){
+            $this->validator->setData($auth_data);
+            $errors =$this->validator->validateAuthForm();
+           }
+
+           if($errors!== []) return $errors;
 
         $password = $auth_data['password'];
         $email = $auth_data['email'];
@@ -72,7 +80,7 @@ class AccountService{
         //обращаемся к бд, ищем соотвествия, если да, возвращаем ответ
 
             $user =$this->getUser($email);
-            if(!$user)return self::AUTH_ERROR;
+            if(!$user)return self::EMAIL_ERROR;
 
             if(!password_verify($password, $user['password'])){
                 return self::AUTH_PWD_ERROR;
@@ -86,13 +94,5 @@ class AccountService{
             $user = $this->dbConnection->execute($sql, ['email' => $email], false);
             return $user;
         }
-
-        //получаем password из бд
-    private function getPassword($password){
-
-            $sql = 'SELECT * FROM user_info Where password=:password;';
-            $user_password = $this->dbConnection->execute($sql, ['password'=>$password], false);
-            return $user_password;
-    }
     
 }

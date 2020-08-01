@@ -53,7 +53,6 @@ class PropertiesController extends Controller{
             // ключи массива - в конфиге в фигурных скобках{category}
             // значение - то что пришло в запросе
             $categoryName = $request->params()['category'];
-            var_dump($category);
             $properties = $this->propertyService->getPropertiesByCategory($categoryName);
             $content ="property_template.php";
             $data=['page_title'=>$properties[0]['c_description'],

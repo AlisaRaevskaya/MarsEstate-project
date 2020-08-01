@@ -13,7 +13,6 @@ function responseHandler(answer){
 }
 
 
-let form = document.forms.auth;
 let form_reg = document.forms.regForm;
 
 

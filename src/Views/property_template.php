@@ -1,4 +1,5 @@
 
+    <h2 class="text-center head_for_category"><? echo $properties[0]['c_description'] ?></h2>
 <div class="container flex-row space-around flex-sm-column flex-s-column wrap">
 <?php foreach ($properties as $prop):?>
                 <div class="screen_container">

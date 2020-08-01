@@ -1,10 +1,19 @@
-<title> <?echo $page_title?> </title>
+<h1 class="text-center">Наши новости<h1>
 <?foreach ($allNews as $news):?>
-<div>
-<img src="static/img/<?echo $news['img']?>">
-<h2><?echo $news['title']?></h2>
-<p><?echo $news['date']?></p>
-<p><?echo  $news['text']?></p>
-<a href="/news/<?echo $news['id_news']?> class='button'">>>Подробнее</a>
+
+<div class="container">
+
+<section class="news_item container grid_four">
+    <div class="news_img">
+        <img src="/static/img/<?echo $news['img']?>">
+    </div>
+    <div>
+        <h4><?echo $news['title']?></h4>
+        <p><?echo $news['desc']?></p>
+        <a href="/news/<?echo $news['id_news']?>" class="button">>>Подробнее</a>
+    </div>
+    
+</section>
+
 <? endforeach;?>
 </div>

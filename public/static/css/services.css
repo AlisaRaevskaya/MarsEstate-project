@@ -45,6 +45,13 @@ background-image: -o-linear-gradient(left, #fff, #000, #fff);
 .description{
   font-size: 1.3rem;
   }
+  .head_for_category{
+    padding:2rem 0;
+  }
+
+
+
+
   @media screen and (max-width:768px){
 h1, 
 h2, 

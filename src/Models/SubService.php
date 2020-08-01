@@ -21,19 +21,20 @@ class SubService{
 
 
     public function subscribe($sub_data ){
-  //валидация[]
+  
         $sub_email=  $sub_data ['sub_email'];  
 
+        //бд
+        if ($this->getEmail($sub_email)) return self::EMAIL_EXISTS;
+        ////валидация[]
         if (isset($sub_data)){
             $this->validator->setData($sub_data);
             $errors =$this->validator->validateSubForm();
            }
-        var_dump($this->getEmail($sub_email));
-        //бд
-        if ($this->getEmail($sub_email)) return self::EMAIL_EXISTS;
+           if($errors !==[]) return $errors['email'];
 
         //запись в бд
-        $sql ="INSERT INTO subscription (id_subscription,email) VALUES(:id, :email);";
+        $sql ="INSERT INTO subscription (id_subscription, email) VALUES(:id, :email);";
         $params=[
             'id'=>$this->dbConnection->getConnection()->lastInsertId(),
             'email'=>$sub_email

@@ -31,17 +31,21 @@
     </div>
 
  <h4>Также Вы можете оставить обратную связь и обязательно с Вами свяжемся!</h4>
- <div id="form_message" >   
- <form name="feedback_form" action="mail.php" method="post">
+ <div id="form_message" >
+
+ <form name="feedback_form">
     <h2>Форма обратной связи.</h2>
-    <p> <div class="titles">Ваше имя*</div> <input required class="input" name="name" type="text"/> </p>
+    <div class="titles">Ваше имя*</div>
+    <input required class="input" name="name" type="text"/> 
      
-    <p> <div class="titles">Электронная почта*</div> <input required class="input" name="email" type="text"/> </p>
+   <div class="titles">Электронная почта*</div> <input required class="input" name="email" type="text"/>
      
-    <p> <div class="titles">Тема сообщения:</div> <input required class="input" name="subjects" type="text"/> </p>
+    <div class="titles">Тема сообщения*:</div> <input required class="input" name="subject" type="text"/> 
      
-    <p> <div class="titles">Текст сообщения:</div><textarea name="message" cols="22" rows="5"></textarea></p>
-    <p><input id="submit" value="Отправить" type="submit" /></p>
+    <div class="titles">Текст сообщения*:</div><textarea name="textarea" cols="22" rows="5"></textarea>
+    <span class ="for_send_result"></span>
+    <div><input id="submit" value="Отправить" type="submit" /></div>
 </form>
 </div>
 </div>
+<script src="static/js/feedbackajax.js"></script>

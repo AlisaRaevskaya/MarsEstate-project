@@ -55,38 +55,38 @@
         </div>
      </section>
 
-    <section>
+    <!-- <section>
     <div class="sl">
         <div class="slider">
         <img src= "/static/img/slide_7.jpg" alt="slider">
-    </div>
+        </div>
         <div class="slider" >
             <img src= "/static/img/slide.jpg" alt="slider" >
         </div>
         <div class="slider">
-        <img src= "/static/img/slider_9.jpg" alt="slider">
+            <img src= "/static/img/slider_9.jpg" alt="slider">
         </div>
         <div class="slider">
-        <img src= "/static/img/slide_4.jpg" alt="slider">
+            <img src= "/static/img/slide_4.jpg" alt="slider">
         </div>
         <div class="slider">
-        <img src= "/static/img/slide-5.jpg" alt="slider">
+            <img src= "/static/img/slide-5.jpg" alt="slider">
         </div>
         <div class="slider">
-        <img src= "/static/img/slide_6.jpg" alt="slider">
+            <img src= "/static/img/slide_6.jpg" alt="slider">
         </div>
         <div class="slider">
             <img src= "/static/img/slide_1.jpg" alt="slider">
-            </div>
-            <div class="slider">
+        </div>
+        <div class="slider">
             <img src= "/static/img/slide_8.jpg" alt="slider" >
-            </div>
-            <div class="slider">
+        </div>
+        <div class="slider">
             <img src= "/static/img/slide_4_1.jpg" alt="slider">
-            </div>
+        </div>
                
     </div>
-    </section>
+    </section> -->
     
     <section class="container team">
         <h1 class="text-center">НАША КОМАНДА</h1>
@@ -135,43 +135,19 @@
         <h2 class="text-center head-text">Наши последние новости</h2>
     
         <div class="flex-sm-column flex-row space-around">
-    
+    <?foreach ($allNews as $news):?>
         <div class="flex-column space-around news_box">
-            <div><img src="/static/img/per.jpg"></div>
-            <h3>NASA представило новый марсоход Perseverance</h3>
-            <p>Национальное управление по аэронавтике и исследованию космического пространства (NASA) представило мировому сообществу новую модель марсохода.</p>
-            <div><a href="per.html" class="button_next">Подробнее>>></a></div>
+            <div><img src="/static/img/<?echo $news['img']?>"></div>
+            <h3><?echo $news['title']?></h3>
+            <p><?echo $news['desc']?></p>
+            <div><a href="/news/<?echo $news['id_news']?>" class="button_next">Подробнее>>></a></div>
     </div>
-    
-    <div class="flex-column space-around news_box">
-        <div><img src="/static/img/wine.jpg"></div>
-        <div><h3>Ученые рассказали о пользе красного вина для полета на Марс</h3></div>
-        <div><p>Американские ученые из Гарвардского университета заявили, что красное вино поможет астронавтам и космонавтам избежать
-             атрофии мышц при полете на Марс.</p></div>
-        <div><a href="wine.html" class="button_next" >Подробнее>>></a></div>
-    </div>
-    
-    <div class="flex-column space-around news_box" >
-        <div><img src="/static/img/ilon.jpeg"></div>
-        <div><h3>Маск запланировал отправить на Марс миллион человек к 2050 году</h3></div>
-        <div><p>Основатель SpaceX сообщил о планах основать на Марсе колонию. По его словам, к 2050 году на планете будут жить менее 1 млн человек</p></div>
-        <div><a href="ilon.html" class="button_next">Подробнее>>></a></div>
-    </div>
-
-    <div class="flex-column space-around news_box">
-        <div><img src="/static/img/mushroom.jpg" ></div>
-        <div><h3>Эксперты NASA предложили строить дома на Марсе из грибов</h3></div>
-        <div><p>Будущие дома на Луне и Марсе могут быть сделаны из грибов – с таким предложением выступили эксперты NASA.</p></div>
-        <div><a href="wine.html"class="button_next">Подробнее>>></a></div>
-    </div>
-    
-    <div class="flex-column space-around news_box">
-        <div><img src="/static/img/canyon.jpg" ></div>
-        <div><h3>Агенство NASA показало марсианский «Большой Каньон»</h3></div>
-        <div><p>Космическое агентство NASA опубликовало снимок марсианского «Большого Каньона» – региона Juventae Chasma.</p></div>
-        <a href="ilon.html"class="button_next">Подробнее>>></a>
-    </div>
+    <?endforeach?>
     </section>
 <div class = "container">
-<a href="/allNews/"class="button_next">Посмотреть все новости</a>
+<a href="/news/all"class="button_next">Посмотреть все новости</a>
 </div>
+
+ 
+<script type="text/javascript" src="slick/slick.min.js"></script>
+<script src="static/js/slider.js"></script> 

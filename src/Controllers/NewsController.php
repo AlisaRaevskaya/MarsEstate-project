@@ -17,22 +17,23 @@ public function __construct(){
 
 public function showAllNews(){
    $allNews = $this->newsService->getAllNews();
-   var_dump($allNews);
    $content="newsMain.php";
    $data = [
        'page_title'=>'Все новости',
+       'path_css'=>'news',
        'allNews'=> $allNews
    ];
    return $this->generateResponse($content, $data);
     }
  
     public function showNewsByID(Request $request){
-        $id=$request->params()['id_news'];
-        $news = $this->animalService->getNewsById($id); //массив с id
-        $content ='news.php';
+        $id = $request->params()['id_news'];
+        $newsById = $this->newsService->getNewsById($id);
+        $content ='news_template.php';
         $data = [
             'page_title' => $news['title'],
-            'news' => $news
+            'newsById' => $newsById,
+            'path_css'=>'news'
         ];
         return $this->generateResponse($content, $data);
 

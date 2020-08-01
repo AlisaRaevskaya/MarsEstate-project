@@ -1,4 +1,7 @@
 <?php
+// Здравствуйте. Если с сервера передаете, например, массив с ошибками
+// можно его преобразовать в json (json_encode()) и передать строку. 
+// На js из json строки сделать объект   и с ним уже работать: JSON.parse()
 
 namespace Alisa\MarsEstate\Controllers;
 
@@ -38,41 +41,34 @@ class AccountController extends Controller
     public function regUser($request){
        $reg_data= $request->post();
 
-       if (isset($reg_data)){
-        $this->validator->setData($reg_data);
-        $errors =$this->validator->validateForm();
-       }
+       //получаем массив с ошибками  $errors
+       //если в $errors не пустой массив, возвращаем его в функции addUSer  
+      
+        $result=$this->accountService->addUser($reg_data);
+       //либо массив c ошибками
+       //либо REG_SUCCESS
+       //либо INSERT_ERROR-ошибка добавления в бд
 
-       $result=$this->accountService->addUser($reg_data);
-    //    if ($result === AccountService::REG_SUCCESS){
-    //     $_SESSION['email'] = $reg_data['email'];
-    // }
-    //     return $this->ajaxResponse($result);
-
-       $content ='registration_form.php';
-       $data=[
-           'page_title'=>'Регистрация',
-           'path_css' => 'form',
-           'reg_result'=>$result,
-           'errors'=>$errors
-       ];
-       return $this->generateResponse($content,$data);//возвращает html
+    if ($result === AccountService::REG_SUCCESS){
+        $_SESSION['email'] = $reg_data['email'];
     }
+
+        $result=json_encode($result);
+        var_dump($result);
+
+        return $this->ajaxResponse($result);
+
+    }
+  
 
     public function authUser($request){
         
         $auth_data = $request->post();
-
-        if (isset($auth_data)){
-            $this->validator->setData($auth_data);
-            $errors =$this->validator->validateForm();
-           }
-
         $result =$this->accountService->authUser($auth_data);
         if ($result === AccountService::AUTH_SUCCESS){
             $_SESSION['email'] = $auth_data['email'];
         }
-        return $this->ajaxResponse($result);//возвращает клиенту строчку
+        return $this->ajaxResponse($result);//возвращает клиенту строчку 
     }
     
     

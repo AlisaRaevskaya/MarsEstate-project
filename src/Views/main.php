@@ -29,20 +29,20 @@
           <img src="/static/img/land.jpg" class="hidden">
         </div>
          <div>
+         <?foreach ($allLand as $land):?><?endforeach?>
             <p>На Марсе огромное количество свободной земли.</p>
             <p>У нас вы можете выбрать и купить участок любого метража.</p>
         </div>
-        <div class="a_button">
-            <a href="#">Подробнее>>></a>
+        <div>
+        <a href="/services/<?echo $land['name']?>"class="a_button">Подробнее>>></a>
         </div>
 
         </div>
     
-  
         <div class="service text-center">
         <div>
             <p>ПОКУПКА</p>
-            <p>Недвижимости</p>
+            <p>Домов</p>
         </div>
       <div>
             <img src="/static/img/land1.jpg" class="imgscene">
@@ -51,15 +51,16 @@
         <p>У нас вы можете выбрать и купить квартиру, дом, виллу на Марсе.</p>
         <p> Помощь в оформлении и содержании.</p>
     </div>
+    <?foreach ($allHouses as $house):?><?endforeach?>
     <div class="a_button" >
-        <a href="#">Подробнее>>></a>
+    <a href="/services/<?echo $house['name']?>"> Подробнее>>></a>
     </div>
-
   </div>
+  
   <div class="service text-center">
     <div>
       <p>АРЕНДА</p>
-      <p>Жилья на Марсе</p>
+      <p>Квартир на Марсе</p>
     </div>
     <div>
       <img src="/static/img/pic3.jpg" class="imgscene">
@@ -69,7 +70,8 @@
       <p>Это быстро, выгодно, надёжно!</p>
     </div>
     <div class="a_button">
-      <a href="#">Подробнее>>></a>
+    <? foreach ($allFlats as $flat):?><?endforeach?>
+    <a href="/services/<?echo $flat['name']?>">Подробнее>>></a>
   </div>
 
   </div>
@@ -286,9 +288,9 @@
            а также о специальных предложениях, предлагаемых вам только HomeMars.com.</p>
        </div>
        <div><form action= "/subscription/" method="POST" name="sub_Form">
-               <input type ="email" name="sub_email" placeholder ="Ваш email" class ="sub_input">
-               <span></span>
+               <input required type ="email" name="sub_email" placeholder ="Ваш email" class ="sub_input">
                <input type ="submit" class ="sub_button" value="Подписаться" name="submit">
+               <span class="email_exists"></span>
                </form>
        </div>
            </section>
