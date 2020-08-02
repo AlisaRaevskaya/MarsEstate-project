@@ -191,6 +191,15 @@ align-items: center;
         background-position: -132px 0;
       }
     
+  .button_back{
+    border:1px solid #9b2d30 ;
+    color:#9b2d30;
+    padding:1rem;
+    border-radius: 1rem;
+    margin:3rem;
+    font-style:bold;
+    display:block;
+}
 
 @media screen and (max-width:830px){
         .flex-sm-column{

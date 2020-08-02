@@ -49,8 +49,9 @@ background-image: -o-linear-gradient(left, #fff, #000, #fff);
     padding:2rem 0;
   }
 
-
-
+.for_property_item{
+  width:700px;
+}
 
   @media screen and (max-width:768px){
 h1, 

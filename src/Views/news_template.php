@@ -9,5 +9,6 @@
 <p><?echo $newsById ['date']?></p>
 <p><?echo  $newsById ['text']?></p>
 </div>
+<a href="/news/all" class="text-center button_back">Назад</a>
 </section>
 <script src="/static/css/news.css"></script>

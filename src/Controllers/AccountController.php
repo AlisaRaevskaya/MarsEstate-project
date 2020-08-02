@@ -54,7 +54,6 @@ class AccountController extends Controller
     }
 
         $result=json_encode($result);
-        var_dump($result);
 
         return $this->ajaxResponse($result);
 

@@ -37,7 +37,6 @@ class PropertiesController extends Controller{
             $category = $request->params()['category'];
             $id_property=$request->params()['id'];
             $property = $this->propertyService->getPropertiesById($category, $id_property);
-            var_dump($property);
             $content ="property.php";
             $data=['page_title'=>$property['c_description'],
                     'path_css'=>'services',

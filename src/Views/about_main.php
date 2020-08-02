@@ -55,7 +55,7 @@
         </div>
      </section>
 
-    <!-- <section>
+    <section>
     <div class="sl">
         <div class="slider">
         <img src= "/static/img/slide_7.jpg" alt="slider">
@@ -86,7 +86,7 @@
         </div>
                
     </div>
-    </section> -->
+    </section>
     
     <section class="container team">
         <h1 class="text-center">НАША КОМАНДА</h1>
@@ -147,7 +147,3 @@
 <div class = "container">
 <a href="/news/all"class="button_next">Посмотреть все новости</a>
 </div>
-
- 
-<script type="text/javascript" src="slick/slick.min.js"></script>
-<script src="static/js/slider.js"></script> 

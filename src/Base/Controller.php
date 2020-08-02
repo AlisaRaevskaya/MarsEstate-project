@@ -12,10 +12,10 @@ class Controller
 //        var_dump($routeInfo);
         switch ($routeInfo[0]){
             case 0:
-                var_dump("404 NOT FOUND");
+                echo("404 NOT FOUND");
                 break;
             case 2:
-                var_dump("405 Method Not Allowed");
+                echo("405 Method Not Allowed");
                 break;
             case 1:
                 $handler = $routeInfo[1]; // ['controller', 'action', 'params']
