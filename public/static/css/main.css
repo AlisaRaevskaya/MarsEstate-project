@@ -189,7 +189,11 @@ div .subscription{
     justify-content: center;
     margin-bottom:6rem;
 }
-
+.email_exists{
+    font-size:15px;
+    font-style:bold;
+    color: whitesmoke;
+}
 
 @media screen and (max-width:900px){
     .xm-scroll{

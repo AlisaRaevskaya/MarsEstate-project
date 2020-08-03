@@ -76,9 +76,11 @@ public function validateName(){
 
 public function validateSubEmail(){
   $val = trim($this->data['email']);
-  if(!filter_var($val, FILTER_VALIDATE_EMAIL)){
+  $check =(preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $val)) ? FALSE : TRUE;
+  if(!$check){
    $this->addError('email', self::EMAIL_FAIL);
   }
+  return true;
 }
 
 public function validateEmail(){

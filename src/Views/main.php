@@ -290,8 +290,9 @@
        <div><form action= "/subscription/" method="POST" name="sub_Form">
                <input required type ="email" name="sub_email" placeholder ="Ваш email" class ="sub_input">
                <input type ="submit" class ="sub_button" value="Подписаться" name="submit">
-               <span class="email_exists"></span>
+               <span class="email_exists block"></span>
                </form>
        </div>
            </section>
+            <script src="/static/js/<?echo $mainjs;?>.js"></script>
            <script src="static/js/subscription.js"></script>

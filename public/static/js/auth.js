@@ -85,7 +85,6 @@ const REG_SUCCESS='Регистрация успешна!';
 const INSERT_ERROR='Данные не добавились';
 const USER_EXISTS='Такой пользователь уже существует';
 
-const EMPTY_FIELD='Поле не может быть пустым';
 const EMAIL_FAIL='Неверный формат email';
 const NAME_CHARACTER_FAIL="Имя пользователя может содержать буквы и цифры, первый символ обязательно буква";
 const CHECKBOX_FAIL='Необходимо согласиться с правилами';

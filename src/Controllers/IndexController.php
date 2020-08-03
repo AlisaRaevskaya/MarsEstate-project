@@ -36,6 +36,7 @@ class IndexController extends Controller
         $data = ['page_title'=>'Главная',
                  'path_css'=>'main',
                  'preloader'=>'preloader',
+                 'mainjs'=>'main',
                  'allHouses'=>$allHouses,
                 'allFlats'=>$allFlats,
                 'allLand'=>$allLand
