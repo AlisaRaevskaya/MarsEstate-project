@@ -13,7 +13,7 @@ function submitButtonFunctionAuth(event){
     if (!validateAuth(this)){
       // span_auth.innerText= AUTH_ERROR;
       return; }
-      span_auth.innerText= AUTH_SUCCESS;
+      // span_auth.innerText= AUTH_SUCCESS;
       console.log("Отправка на сервер");
       this.submit();
       };
@@ -40,10 +40,10 @@ function submitButtonFunctionReg(event){
     event.preventDefault();
     let span = document.querySelector(".reg_result");
     if (!validate_Reg(this)){
-    span.innerText= REG_ERROR;
+    // span.innerText= REG_ERROR;
     return;
     }
-    span.innerText= REG_SUCCESS;
+    // span.innerText= REG_SUCCESS;
     console.log("Отправка на сервер");
     this.submit();
 }

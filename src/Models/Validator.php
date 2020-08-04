@@ -38,8 +38,8 @@ public function validateForm(){
 }
 
 public function validateAuthForm(){
-  $this->  validateEmail();
-
+  $this-> validateEmail();
+  $this-> validatePassword();
   return $this->errors;
 }
 
@@ -89,7 +89,7 @@ public function validateEmail(){
     $this->addError('email', self::EMPTY_FIELD);
   }else{
     if (!filter_var($val, FILTER_VALIDATE_EMAIL)){
-      $this->addError( 'email',self::EMAIL_FAIL);
+      $this->addError( 'email', self::EMAIL_FAIL);
   }
   }
 }
@@ -109,7 +109,7 @@ public function validatePassword(){
   if(empty($val)){
     $this->addError('password',self::EMPTY_FIELD);
   }else{
-    if(!preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,12}$/', $val)){
+    if(!preg_match('/(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,15}/', $val)){
       $this->addError( 'password', self::PASS_FAIL);
   }
   }

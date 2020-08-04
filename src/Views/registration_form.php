@@ -15,7 +15,7 @@
            </div>
            <div class="inputBox input_for_pass">
             <label for="pass"class="labelText">Ваш пароль</label> 
-            <input required type="password" id="pass"name="password" class="userInput"minlength="8" maxlength ="15" >
+            <input required type="password" id="pass"name="password" class="userInput" minlength="8" maxlength ="15" >
             <span class ="auth_password_error"></span>
            </div>
            <span class="auth_result"></span>
@@ -34,7 +34,7 @@
         
         </form>
         
-        <form class="tab-form" autocomplete="on" name="regForm">
+        <form class="tab-form" action="/registration/" method= post autocomplete="on" name="regForm">
     
         <div class="inputBox">
         <label for="name_reg" class="labelText">Ваше имя</label>
@@ -72,6 +72,6 @@
         </div>
         </div>
     </section>
-<script src="/static/js/validator.js"></script>
 <script src="/static/js/auth.js"></script>
 <script src="/static/js/form.js"></script>
+<script src="/static/js/reg.js"></script>

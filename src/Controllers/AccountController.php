@@ -1,7 +1,4 @@
 <?php
-// Здравствуйте. Если с сервера передаете, например, массив с ошибками
-// можно его преобразовать в json (json_encode()) и передать строку. 
-// На js из json строки сделать объект   и с ним уже работать: JSON.parse()
 
 namespace Alisa\MarsEstate\Controllers;
 
@@ -30,6 +27,7 @@ class AccountController extends Controller
         $data = [
             'page_title'=>'Регистрация',
             'path_css' => 'form',
+            'validator'=>'validator'
         ];
         return $this->generateResponse($content, $data);
     }
@@ -40,9 +38,7 @@ class AccountController extends Controller
 
     public function regUser($request){
        $reg_data= $request->post();
-
-       //получаем массив с ошибками  $errors
-       //если в $errors не пустой массив, возвращаем его в функции addUSer  
+    
       
         $result=$this->accountService->addUser($reg_data);
        //либо массив c ошибками
@@ -53,34 +49,27 @@ class AccountController extends Controller
         $_SESSION['email'] = $reg_data['email'];
     }
 
-        $result=json_encode($result);
+        $result= json_encode($result, JSON_UNESCAPED_UNICODE);
 
         return $this->ajaxResponse($result);
-
     }
   
 
     public function authUser($request){
         
         $auth_data = $request->post();
+
         $result =$this->accountService->authUser($auth_data);
+        $result= json_encode($result, JSON_UNESCAPED_UNICODE);
+
         if ($result === AccountService::AUTH_SUCCESS){
             $_SESSION['email'] = $auth_data['email'];
+            $_SESSION['user_role'] = 'user';
         }
         return $this->ajaxResponse($result);//возвращает клиенту строчку 
     }
     
-    
-    // // добавить страницу account - личный кабинет пользователя
-    public function account(){
-        if(!isset($_SESSION['email']))header('Location:/registration_form/');
-        $content = 'account.php';
-        $data = [
-            'page_title'=>'Личный кабинет'
-        ];
-        return $this->generateResponse($content,$data);
-    }
-
+ 
     public function logout() {
         $_SESSION=[];
         header('Location: /');

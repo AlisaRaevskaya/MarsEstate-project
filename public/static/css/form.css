@@ -20,9 +20,9 @@ a{
     background: rgb(44, 44, 44, 0.7);
     width:370px;
     padding: 20px;
-    /* height:100vh;
-    justify-content: center;
-    align-items:center; */
+    /* display: flex;
+    height: 100vh;
+    align-content: center; */
    }
  /* .dws-wrapper:target{
     display: block;
@@ -51,9 +51,22 @@ a{
     /*  */
 }
 .inputBox{
-    position:relative;
+    /* position:relative; */
     margin: 0 0 15px;
     }
+
+    .userInput {
+        width: 350px; 
+        height: 40px;
+        font-size: 15px;
+        color: whitesmoke;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #a5a5a5;
+        padding:10px 0;
+        /* position: relative; */
+        background: transparent;
+       } 
 .labelText {
         position:absolute;
         font-size: 18px;
@@ -61,17 +74,7 @@ a{
         color: whitesmoke;
         transition: .5s;
        } 
-.userInput {
-        width: 100%; 
-        height: 40px;
-        font-size: 20px;
-        color: whitesmoke;
-        outline: none;
-        border: none;
-        border-bottom: 1px solid #a5a5a5;
-        position: relative;
-        background: transparent;
-       } 
+
 
 .dws-form ul{
 list-style: none;
@@ -100,10 +103,10 @@ label.tab.active {
     transition:0,5s;
    };
   
-.dws-form input {
-    display: block;
-    width: 100%; 
-   }
+/* .dws-form input {
+    /* display: block;
+    width: 100%;  */
+
 div.fa_accounts{
     margin:1rem;
 }
@@ -161,6 +164,5 @@ a.terms:hover{
 span{
     font-size: 12px;
     padding:2px 0;
-    position:relative;
 }
  

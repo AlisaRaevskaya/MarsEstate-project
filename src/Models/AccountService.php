@@ -31,14 +31,13 @@ class AccountService{
 //контроллер передает данные из post
 
     public function addUser(array $reg_data){
-       
+
         if (isset($reg_data))
         {$this->validator->setData($reg_data);
         $errors=$this->validator->validateForm();
         }
 
         if(!empty($errors)) return $errors;
-       
 
         //если пустой массив и нет ошибок, объявляем переменные полей
          $checkbox = $reg_data['checkRules'];
@@ -72,7 +71,7 @@ class AccountService{
             $errors =$this->validator->validateAuthForm();
            }
 
-           if($errors!== []) return $errors;
+           if(!empty($errors)) return $errors;
 
         $password = $auth_data['password'];
         $email = $auth_data['email'];

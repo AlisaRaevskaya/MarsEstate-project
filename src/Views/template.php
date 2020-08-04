@@ -54,9 +54,16 @@
     </ul>
     </nav>
     </div>
+
+    <?if (!isset($_SESSION['email'])):?>
     <div class="forlogin">
         <a href="/registration_form/" class="icon-login"></a>
     </div>
+    <?endif?>
+
+    <?if (isset($_SESSION['email'])):?>
+<a href="/logout" class="button">Выйти</a>
+<?endif?>
 </div>
 </div>
 </header>
@@ -65,10 +72,6 @@
 
 <main>
 
-<? if (isset($_SESSION['email'])): ?>
-<li><a href="/account">Личный кабинет</a></li>
-<a href="/logout">Выйти</a>
-<?endif?>
 
 <?include_once $content ?></main>
 

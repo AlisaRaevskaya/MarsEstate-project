@@ -132,6 +132,8 @@
     
     
      <section class="container">
+    <?php if ($_SESSION['email'] == $user['email']);?>
+
         <h2 class="text-center head-text">Наши последние новости</h2>
     
         <div class="flex-sm-column flex-row space-around">

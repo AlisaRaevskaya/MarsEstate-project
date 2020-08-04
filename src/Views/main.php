@@ -250,32 +250,19 @@
 
 <section class="feedback">
     <div class="container">
-    
         <div class="text-center">
         <h2>Отзывы наших клиентов</h2>
         <p>Вам нужно больше информации? Проверьте, что другие люди говорят о нашем продукте.</p>
         </div>
-    
+
      <div class="flex-row space-around flex-m-column">
+     <?foreach ($reviews as $rev):?>
             <div class="flex-4">
-                <img src="/static/img/img1.jpg"id="round">
-                <p><strong>Алекс Томпсон</strong></p>
-                <p>«У нас нет сожалений! После использования вашего продукта мой бизнес взлетел до небес!
-                    Я вернул покупную цену всего за 48 часов! Я не мог просить больше, чем это.</p>
+                <img src="/static/img/<?echo $rev['img']?>"id="round">
+                <p><strong><?echo $rev['author']?></strong></p>
+                <p><?echo $rev['text']?></p>
             </div>
-    
-            <div class="flex-4">
-                <img src="/static/img/img2.jpg"id="round">
-                <p><strong>Андрей Сом</strong></p>
-                <p>Ваша компания действительно преуспевает и стоит за своим продуктом на 100 процентов. Гестия стоит гораздо больше, чем я заплатил. Мне нравится Гестия больше каждый день, потому что это облегчает..</p>
-            </div>
-    
-            <div class="flex-4">
-                <img src="/static/img/img3.jpg" id="round">
-                <p><strong>Тина Лейг</strong></p>
-                <p>Спасибо за то, что сделали его безболезненным, приятным и, самое главное, бесплатным! Я так доволен этим продуктом. Чувак, у тебя все отлично! Я отошлю всех, кого знаю.</p>
-            </div>
-    
+    <?endforeach;?>       
     </div>
     </div>
     </section>
