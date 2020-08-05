@@ -13,11 +13,13 @@
             <input required type="email" id="login" name="email" class="userInput" minlength="5">
             <span class ="auth_email_error "></span>
            </div>
+
            <div class="inputBox input_for_pass">
             <label for="pass"class="labelText">Ваш пароль</label> 
             <input required type="password" id="pass"name="password" class="userInput" minlength="8" maxlength ="15" >
             <span class ="auth_password_error"></span>
            </div>
+
            <span class="auth_result"></span>
            <input type="submit" value="Войти" class="button "/>
            
@@ -35,14 +37,14 @@
         </form>
         
         <form class="tab-form" action="/registration/" method= post autocomplete="on" name="regForm">
-    
-        <div class="inputBox">
+        
+         <div class="inputBox">
         <label for="name_reg" class="labelText">Ваше имя</label>
         <input required type="text" id="name_reg" name="name" class="userInput" minlength="2" maxlength ="20">
-        <span class ="name_error"></span>
-       </div>
-        
-            <div class="inputBox">
+        <span class ="name_error"></span> 
+        </div>
+        <!-- </div> -->
+        <div class="inputBox">
             <label for="email"class="labelText">Ваш email</label>
             <input required type="email" id="email"name="email" class="userInput">
             <span class ="email_error"> </span>
@@ -52,14 +54,15 @@
             <label for="pass2"class="labelText">Ваш пароль</label> 
             <input required type="password" id ="pass2"name="password" class="userInput"minlength="8" maxlength ="15"  >
             <span class ="pass_error"></span>
-            
             </div>
+
             <div class="inputBox">
             <label for="repeat_pass"class="labelText">Повторите пароль</label> 
             <input required type="password" id ="repeat_pass" name="re_password" class="userInput" minlength="8" maxlength ="15"  >
             <span class ="cpass_error"> </span>
+           
             </div>
-            
+
             <div class="recover">
             <input required checked type="checkbox" id="rules_ok" name="checkRules" value=1>
             <label for="rules_ok">Ознакомлен(-а) и принимаю 
@@ -72,6 +75,6 @@
         </div>
         </div>
     </section>
+
 <script src="/static/js/auth.js"></script>
 <script src="/static/js/form.js"></script>
-<script src="/static/js/reg.js"></script>

@@ -8,6 +8,9 @@ use Alisa\MarsEstate\Base\DBConnection;
 
 class FeedbackService{
 
+    const F_SUCCESS="Успешно отправлены данные";
+    const INSERT_FAIL ="Данные не добавлены";
+
     public $validator;
     private $dbConnection;
 
@@ -20,29 +23,31 @@ class FeedbackService{
 
  public function checkFeedback($feed_data){
 
-    if (isset($feed_data)){//валидация
-        $this->validator->setData($reg_data);
+    if (isset($feed_data)){
+        $this->validator->setData($feed_data);
         $errors=$this->validator->validateFeedBackForm();
        }
     //получаем массив с ошибками  $errors
     //если в $errors не пустой массив, возвращаем его в функции addUSer  
     if($errors !== []) return $errors;
+
     //если пустой массив и нет ошибок, объявляем переменные полей
     $name = $feed_data['name'];
-    $pwd = $feed_data['password'];
+    $subject = $feed_data['subject'];
     $email = $feed_data['email'];
-  
+    $text = $feed_data['textarea'];
+
     //запись данных в бд
-    $sql ="SELECT * FROM 'feedback_info'(id, name, email, subject, textarea)
-    VALUES(:id, :name, :user_email, :subject, :textarea);";
+    $sql ='INSERT INTO feedback_info (id, name, email, subject, textarea)
+    VALUES(:id, :user_name, :user_email, :subject, :textarea);';
     $params=[
         'id'=>$this->dbConnection->getConnection()->lastInsertId(),
         'user_name'=>$name,
-        'user_pwd'=>$pwd,
-        'user_email'=>$email, 
-        
+        'subject'=>$subject,
+        'textarea'=>$text,
+        'user_email'=>$email 
     ];
-    return $this->dbConnection->executeSql($sql, $params)? self:: REG_SUCCESS : self::INSERT_ERROR;  
+    return $this->dbConnection->executeSql($sql, $params)? self:: F_SUCCESS : self::INSERT_FAIL;  
 }
 
 }

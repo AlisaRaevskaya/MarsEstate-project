@@ -26,8 +26,7 @@ class AccountController extends Controller
         $content = 'registration_form.php';
         $data = [
             'page_title'=>'Регистрация',
-            'path_css' => 'form',
-            'validator'=>'validator'
+            'path_css' => 'form'
         ];
         return $this->generateResponse($content, $data);
     }

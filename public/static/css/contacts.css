@@ -3,12 +3,13 @@
 @import "form.css";
 
 .contacts{
-    padding:2rem;
+    padding:2rem 5rem;
     line-height:2;
 }
 
 #form_message{
-margin:2rem 1rem;
+padding:2rem 5rem;
+/* margin:2rem 1rem; */
 }
 
 #form_message form{
@@ -27,4 +28,7 @@ input[type="submit"]{
 input[type="textarea"]{
 	border-radius: 5px;
 	width: 170px;
+}
+.head_fb{
+    margin-bottom:2rem;
 }

@@ -49,11 +49,10 @@ public function validateSubForm(){
 }
 
 public function validateFeedBackForm(){
-
-  $this->validateEmail();
   $this->validateName();
+  $this->validateEmail();
+  $this->validateSubjectArea();
   $this->validateTextArea();
-  
   return $this->errors;
 }
 
@@ -76,7 +75,7 @@ public function validateName(){
 
 public function validateSubEmail(){
   $val = trim($this->data['email']);
-  $check =(preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $val)) ? FALSE : TRUE;
+  $check = (preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $val)) ? FALSE : TRUE;
   if(!$check){
    $this->addError('email', self::EMAIL_FAIL);
   }

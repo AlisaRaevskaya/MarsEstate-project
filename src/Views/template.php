@@ -9,14 +9,7 @@
     <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/static/css/<?echo $preloader;?>.css">
     <link rel="stylesheet" href="/static/css/<?echo $path_css;?>.css">
-    <link rel="stylesheet" type="text/css" href="static/slick/slick.css"/>
-<link rel="stylesheet" type="text/css" href="static/slick/slick-theme.css"/>
-<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="static/slick/slick.min.js"></script>
-<script src="static/slick/slider.js"></script>
 <script src="/static/js/<?echo $preloader;?>.js"></script>
-<script src="/static/js/<?echo $validator;?>.js"></script>
 <title><?echo $page_title; ?></title>
 </head>
 <header class="general">

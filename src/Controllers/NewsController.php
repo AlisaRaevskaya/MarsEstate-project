@@ -40,24 +40,3 @@ public function showAllNews(){
     }
 
 }
-// $category = $request->params()['category'];
-
-    // $animal= $this->animalService = getAnimalsByCategory($category);
-    // $content = 'animalsByCategory.php';
-    //     $data = [
-    //         'page_title' => ?$animals[0]['description'];
-    //         'animals'=>$animals
-    //     ];
-    // $this->generateResponse($content,$data);
-    // var_dump($animal);
-
-        // $id_animal=$request->params()['id'];
-    // $animal= $this->animalService = getAnimalsById($id);
-    // $content = 'animal.php';
-    //     $data = [
-    //         'page_title' => ?$animals[0]['description'];
-    //         'animals'=>$animals
-    //     ];
-    // $this->generateResponse($content,$data);
-
-    // var_dump($request->params());
