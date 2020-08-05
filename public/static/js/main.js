@@ -33,19 +33,15 @@ function scrollCounter() {
         outNum(200, ".stats_count_years");
         outNum(50, ".stats_count_agents");
         outNum(250, ".stats_count_clients");
-        this.removeEventListener('scroll', scrollCounter);
-    } else{
+    }else{
+        fixCount(".stats_count_contract", 1000);
+        fixCount(".stats_count_years", 200);
+        fixCount(".stats_count_agents", 50);
+        fixCount(".stats_count_clients", 250);
         this.removeEventListener('scroll', scrollCounter);
     }
 }
+
 function fixCount(elem, count){
-document.querySelector(elem).innerHTML(count);
+document.querySelector(elem).innerHTML= count;
 }
-
-//авторизация закрытие
-let close = document.querySelector('.close-modal');
-close.addEventListener("click", function(){
-    window.location.href="main.html";
-});
-
-

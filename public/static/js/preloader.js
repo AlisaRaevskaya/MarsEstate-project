@@ -1,4 +1,6 @@
-let loadText =document.querySelector('.preloader .preloader-text');
+let loadText = document.querySelector('.preloader-text');
+let preloader = document.querySelector('.preloader');
+let main = document.querySelector('main');
 let dots =1;
 
 
@@ -31,8 +33,7 @@ setInterval(()=>{
 }
 }, 500);
 
-let preloader = document.querySelector('.preloader');
-let main = document.querySelector('main');
+
 
 function finishPreloading(){
     preloader.style.opacity= 0;
@@ -41,8 +42,9 @@ function finishPreloading(){
     },500);
 }
 
-window.onload = function(main){
+window.onload = function(){
 setTimeout(()=>{
     finishPreloading();
 }, 2000);
+
 }

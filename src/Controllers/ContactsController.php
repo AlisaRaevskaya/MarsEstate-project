@@ -22,7 +22,7 @@ class ContactsController extends Controller{
             ];
        
     return $this->generateResponse($content, $data);
-}
+    }
 
     public function feedSend($request){
     $feed_data =$request->post();
@@ -32,4 +32,5 @@ class ContactsController extends Controller{
 
     return $this->ajaxResponse($result);
     }
+
 }

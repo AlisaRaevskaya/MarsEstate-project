@@ -132,10 +132,9 @@
     
     
      <section class="container">
-    <?php if ($_SESSION['email'] == $user['email']);?>
 
         <h2 class="text-center head-text">Наши последние новости</h2>
-    
+    <div class="sl1"> 
         <div class="flex-sm-column flex-row space-around">
     <?foreach ($allNews as $news):?>
         <div class="flex-column space-around news_box">
@@ -143,6 +142,7 @@
             <h3><?echo $news['title']?></h3>
             <p><?echo $news['desc']?></p>
             <div><a href="/news/<?echo $news['id_news']?>" class="button_next">Подробнее>>></a></div>
+    </div>
     </div>
     <?endforeach?>
     </section>

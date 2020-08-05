@@ -282,4 +282,5 @@
        </div>
            </section>
             <script src="/static/js/<?echo $mainjs;?>.js"></script>
+            
            <script src="static/js/subscription.js"></script>

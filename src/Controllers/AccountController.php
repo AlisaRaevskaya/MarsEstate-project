@@ -39,7 +39,7 @@ class AccountController extends Controller
        $reg_data= $request->post();
     
       
-        $result=$this->accountService->addUser($reg_data);
+    $result=$this->accountService->addUser($reg_data);
        //либо массив c ошибками
        //либо REG_SUCCESS
        //либо INSERT_ERROR-ошибка добавления в бд

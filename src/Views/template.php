@@ -9,7 +9,8 @@
     <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/static/css/<?echo $preloader;?>.css">
     <link rel="stylesheet" href="/static/css/<?echo $path_css;?>.css">
-<script src="/static/js/<?echo $preloader;?>.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/slick/slick-theme.css"/>
 <title><?echo $page_title; ?></title>
 </head>
 <header class="general">
@@ -63,8 +64,16 @@
 
 <body>
 
-<main>
+<div class="preloader">
+    <div class="blocks">
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    </div>
+    <p class="preloader-text">...Loading</p>
+</div>
 
+<main>
 
 <?include_once $content ?></main>
 
@@ -122,10 +131,10 @@
 <h4>тел.8800231562</h4>
 </div>
 </footer>
-
+<script src="/static/js/<?echo $preloader;?>.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="static/slick/slick.min.js"></script>
-<script src="/static/js/general.js"></script>
+<script src="/static/slick/slick.min.js"></script>
+<script src="/static/js/slider.js"></script>
 </body>
 </html>
