@@ -1,6 +1,7 @@
 let auth_form = document.forms.auth;
 let auth_password = auth_form.elements.password;
 let auth_email= auth_form.elements.email;
+
 console.log(auth_form);
 
 auth_form.addEventListener('submit', async(event)=>{
@@ -8,7 +9,6 @@ auth_form.addEventListener('submit', async(event)=>{
     event.preventDefault();
     let span_auth = document.querySelector(".auth_result");
     if (!validateAuth(this)){
-      // span_auth.innerText= AUTH_ERROR;
       return; }
     try {
         const response = await fetch("/authorisation/", {//обработчик action
@@ -44,12 +44,12 @@ const EMAIL_FAIL='Неверный формат email';
 let span_password_error = document.querySelector('.auth_password_error');
 let span_email_error = document.querySelector('.auth_email_error');
 let input_pass = auth_form.elements.email;
-let input_for_pass = document.querySelector('.input_for_pass');
+let auth_result = document.querySelector('.auth_result');
 
 function responseHandler(answer){
     if(answer === AUTH_SUCCESS){
-        alert(AUTH_SUCCESS);
-        window.location.replace('/');
+      alert(AUTH_SUCCESS);
+      window.location.replace('/');
     }else if(answer === EMAIL_FAIL){
         span_email_error.innerHTML= EMAIL_FAIL;
     }else if(answer === EMAIL_ERROR){
@@ -66,6 +66,11 @@ function responseHandler(answer){
     }
     }
 }
+
+
+
+
+
 
 let reg_form = document.forms['regForm'];
 

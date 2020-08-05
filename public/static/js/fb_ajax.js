@@ -6,6 +6,9 @@ console.log(feedback_form);
 feedback_form.addEventListener('submit', async(event)=>{
 // async позволяет использовать await
     event.preventDefault();
+    if(!validateFeedBack(this)){
+      return;
+    }
     try {
         const response = await fetch("/feedback/", {//обработчик action
             method: 'POST', 
@@ -13,28 +16,54 @@ feedback_form.addEventListener('submit', async(event)=>{
         });
         const answer = await response.json(); // .json();
         console.log("ответ сервера " + answer);
-        console.log(responseHandler(answer));
+        responseHandler(answer);
     } catch (error) {
         console.log("ошибка", error);
     }
 });
 
-let result = document.querySelector(".for_send_result")
-const SEND_OK="Ваша форма отправлена";
-const SEND_ERROR ="Форма не отправлена"
+let result = document.querySelector(".for_send_result");
+
+const F_SUCCESS="Данные успешно отправлены";
+const INSERT_FAIL ="Данные не добавлены";
+let span_name = document.querySelector(".error_name");
+let span_email = document.querySelector(".error_email");
+let span_subject= document.querySelector(".error_subject");
+let span_textarea=document.querySelector(".error_textarea");
+
 function responseHandler(answer){
-    if (answer === SEND_OK){
-result.innerText ="SEND_OK";
-    }
+    if (answer === F_SUCCESS){
+      result.innerText = F_SUCCESS;
+    }if (answer === INSERT_FAIL){
+      result.innerText = INSERT_FAIL;
+    }else{ 
+      for (let key in answer){
+      if (key =='subject'){
+          span_subject.innerHTML = answer.key;
+          }
+      if (key =='email'){
+          span_email.innerHTML = answer.key;
+              }
+      if (key =='subject'){
+          span_name.innerHTML = answer.key;
+                      } 
+      if (key =='textarea'){
+          span_textarea.innerHTML = answer.key;
+      } 
+  }
+  }                     
 }
 
-function validateFeedBack(feedback_form){
-    let name=feedback_form.elements.name;
-    let email = feedback_form.elements.email;
+let name= feedback_form.elements.name;
+let email= feedback_form.elements.email;
 
-    if (validateEmail(email) && validateName(name)){
+function validateFeedBack(feedback_form){
+    if(feedback_form){
+      if (validateEmail(email) && validateName(name)){
         return true;
+      }
     }
+
 }
 
 function checkIfEmpty(field) {
@@ -87,17 +116,15 @@ function containsCharacters(field, code) {
           return false;
         }
     }
-    function validateName(name) {
-        if (checkIfEmpty(name)) return;
+    function validateName(elem) {
+        if (checkIfEmpty(elem)) return;
           // is if it has only letters
-          if (!containsCharacters(name, 1)){
-            return;
-          } 
+          if (!containsCharacters(elem, 1)) return;
           return true;
         };
-        function validateEmail(elem) {
+
+    function validateEmail(elem) {
             if (checkIfEmpty(elem))return;
             if (!containsCharacters(elem, 5)) return;
-            setValid(elem);
             return true;
           }

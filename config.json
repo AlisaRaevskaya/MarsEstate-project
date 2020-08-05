@@ -46,7 +46,7 @@
         "method": "POST"
         },
         "logout": {
-          "path": "/logout",
+          "path": "/logout/",
           "controller": "Alisa\\MarsEstate\\Controllers\\AccountController::logout",
           "method": "GET"
         },

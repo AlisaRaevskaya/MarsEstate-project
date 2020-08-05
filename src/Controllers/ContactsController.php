@@ -6,7 +6,8 @@ use Alisa\MarsEstate\Base\Controller;
 use Alisa\MarsEstate\Models\FeedbackService;
 
 class ContactsController extends Controller{
-    private $feedbackService;
+    
+        private $feedbackService;
 
     public function __construct(){
 
@@ -14,7 +15,7 @@ class ContactsController extends Controller{
 
     }
     
-public function contacts(){
+    public function contacts(){
     $content = 'contacts.php';
     $data = ['page_title'=>'Контакты',
              'path_css'=>'contacts',
@@ -23,11 +24,11 @@ public function contacts(){
     return $this->generateResponse($content, $data);
 }
 
-
     public function feedSend($request){
     $feed_data =$request->post();
     
     $result=$this->feedbackService->checkFeedback($feed_data);
+    $result =json_encode($result, JSON_UNESCAPED_UNICODE);
 
     return $this->ajaxResponse($result);
     }

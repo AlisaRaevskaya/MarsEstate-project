@@ -16,7 +16,7 @@ const NAME_CHARACTER_FAIL="Имя пользователя может содер
 const CHECKBOX_FAIL='Необходимо согласиться с правилами';
 const PASS_FAIL="Пароль должен содержать строчные и прописные латинские буквы, цифры, спецсимволы. Минимум 8 символов";
 const PASS_NOT_SAME='Пароли не совпадают';
-
+const LENGTH_FAIL="Поле должно содержать меньше букв";
 
 public function setData($post_data){
  $this->data = $post_data;
@@ -133,7 +133,7 @@ public function validateTextArea(){
     $this->addError('textarea',self::EMPTY_FIELD);
   }else{
     if(strlen($val)>$limit){
-    $this->addError('textarea',`Длина поля не должна превышать {$limit} знаков`);
+    $this->addError('textarea',self::LENGTH_FAIL);
   }
   }
 }
@@ -145,7 +145,7 @@ public function validateSubjectArea(){
     $this->addError('subject',self::EMPTY_FIELD);
   }else{
     if(strlen($val)>$limit){
-    $this->addError('subject',`Длина поля не должна превышать {$limit} знаков`);
+    $this->addError('subject',self::LENGTH_FAIL);
   }
   }
 }

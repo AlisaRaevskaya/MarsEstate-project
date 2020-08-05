@@ -55,8 +55,8 @@
     <?endif?>
 
     <?if (isset($_SESSION['email'])):?>
-<a href="/logout" class="button">Выйти</a>
-<?endif?>
+    <a href="/logout/">Выйти</a>
+    <?endif?>
 </div>
 </div>
 </header>

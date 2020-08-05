@@ -32,19 +32,20 @@ break;
 }
 
 let userInputArray = Array.from(document.querySelectorAll(".userInput"));
-console.log(userInput);
+console.log(userInputArray);
 
 for (elem of userInputArray){
 console.log(elem);
 
-elem.addEventListener("focus", function () {
+elem.addEventListener("focus", focusFunc);
+
+function focusFunc(){
 console.log(this.previousElementSibling);
 this.previousElementSibling.classList.add("focus");
-})
-
-elem.addEventListener("blur", function () {
-if(this.value === 0)
-this.previousElementSibling.classList.remove("focus");
-})
-
+}
+// elem.addEventListener("blur", function () {
+// this.previousElementSibling.classList.remove("focus");
+// })
 };
+
+elem.removeEventListener("focus", focusFunc);

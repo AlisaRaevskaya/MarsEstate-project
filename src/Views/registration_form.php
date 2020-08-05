@@ -20,7 +20,7 @@
             <span class ="auth_password_error"></span>
            </div>
 
-           <span class="auth_result"></span>
+           <span class="auth_result block"></span>
            <input type="submit" value="Войти" class="button "/>
            
             <div class="fa_accounts flex-row space-between">
@@ -47,7 +47,7 @@
         <div class="inputBox">
             <label for="email"class="labelText">Ваш email</label>
             <input required type="email" id="email"name="email" class="userInput">
-            <span class ="email_error"> </span>
+            <span class ="email_error"></span>
             </div>
         
             <div class="inputBox">
@@ -68,6 +68,7 @@
             <label for="rules_ok">Ознакомлен(-а) и принимаю 
             <br><a href="#"class="terms">условия регистрации</a></br></label>
             </div>
+
             <span class="reg_result block"><?echo $reg_result?></span>
             <input type="submit" class="reg_button" value="Зарегистрироваться">
             <a class="close-modal" href="/">+</a>

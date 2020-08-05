@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $request = new \Alisa\MarsEstate\Base\Request();

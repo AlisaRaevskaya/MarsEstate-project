@@ -7,7 +7,7 @@ use Alisa\MarsEstate\Models\AccountService;
 use Alisa\MarsEstate\Models\Validator;
 
 class AccountController extends Controller
-{
+{ 
     private $accountService;
     // private $request;
     public $validator;
@@ -47,7 +47,6 @@ class AccountController extends Controller
     if ($result === AccountService::REG_SUCCESS){
         $_SESSION['email'] = $reg_data['email'];
     }
-
         $result= json_encode($result, JSON_UNESCAPED_UNICODE);
 
         return $this->ajaxResponse($result);
@@ -59,12 +58,12 @@ class AccountController extends Controller
         $auth_data = $request->post();
 
         $result =$this->accountService->authUser($auth_data);
-        $result= json_encode($result, JSON_UNESCAPED_UNICODE);
 
         if ($result === AccountService::AUTH_SUCCESS){
             $_SESSION['email'] = $auth_data['email'];
-            $_SESSION['user_role'] = 'user';
         }
+        $result= json_encode($result, JSON_UNESCAPED_UNICODE);
+
         return $this->ajaxResponse($result);//возвращает клиенту строчку 
     }
     
