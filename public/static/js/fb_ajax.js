@@ -1,14 +1,20 @@
 
-let feedback_form = document.forms['feedback_form'];
+let feedback_form = document.forms.feedback_form;
 console.log(feedback_form);
+let result = document.querySelector(".for_send_result");
+let span_name = document.querySelector(".error_name");
+let span_email = document.querySelector(".error_email");
+let span_subject= document.querySelector(".error_subject");
+let span_textarea= document.querySelector(".error_textarea");
 
+const F_SUCCESS="Ваша информация принята";
+const INSERT_FAIL ="Данные не добавлены";
 
 feedback_form.addEventListener('submit', async(event)=>{
 // async позволяет использовать await
     event.preventDefault();
     if(!validateFeedBack(this)){
-      return;
-    }
+      return;}
     try {
         const response = await fetch("/feedback/", {//обработчик action
             method: 'POST', 
@@ -16,25 +22,16 @@ feedback_form.addEventListener('submit', async(event)=>{
         });
         const answer = await response.json(); // .json();
         console.log("ответ сервера " + answer);
-        responseHandler(answer);
+        console.log(responseHandler(answer));
     } catch (error) {
         console.log("ошибка", error);
     }
 });
 
-let result = document.querySelector(".for_send_result");
-
-const F_SUCCESS="Данные успешно отправлены";
-const INSERT_FAIL ="Данные не добавлены";
-let span_name = document.querySelector(".error_name");
-let span_email = document.querySelector(".error_email");
-let span_subject= document.querySelector(".error_subject");
-let span_textarea=document.querySelector(".error_textarea");
-
 function responseHandler(answer){
-    if (answer === F_SUCCESS){
+    if (answer == F_SUCCESS){
       result.innerText = F_SUCCESS;
-    }if (answer === INSERT_FAIL){
+    }if (answer == INSERT_FAIL){
       result.innerText = INSERT_FAIL;
     }else{ 
       for (let key in answer){
@@ -63,24 +60,20 @@ function validateFeedBack(feedback_form){
         return true;
       }
     }
-
 }
+function validateName(elem) {
+  if (checkIfEmpty(elem)) return;
+    // is if it has only letters
+    if (!containsCharacters(elem, 1)) return;
+    return true;
+  };
 
-function checkIfEmpty(field) {
-    if (isEmpty(field.value.trim())) {
-      // set field invalid
-      setInvalid(field, 'Поле не может быть пустым');
+function validateEmail(elem) {
+      if (checkIfEmpty(elem))return;
+      if (!containsCharacters(elem, 5)) return;
       return true;
-    } else {
-      // set field valid
-      setValid(field);
-      return false;
     }
-  }
-  function isEmpty(value) {
-    if (value === '') return true;
-    return false;
-  }
+
   
   function setInvalid(field, message) {
     field.className = 'invalid';
@@ -116,15 +109,20 @@ function containsCharacters(field, code) {
           return false;
         }
     }
-    function validateName(elem) {
-        if (checkIfEmpty(elem)) return;
-          // is if it has only letters
-          if (!containsCharacters(elem, 1)) return;
-          return true;
-        };
+    function isEmpty(value) {
+      if (value === '') return true;
+      return false;
+    }
 
-    function validateEmail(elem) {
-            if (checkIfEmpty(elem))return;
-            if (!containsCharacters(elem, 5)) return;
-            return true;
-          }
+    function checkIfEmpty(field) {
+      if (isEmpty(field.value.trim())) {
+        // set field invalid
+        setInvalid(field, 'Поле не может быть пустым');
+        return true;
+      } else {
+        // set field valid
+        setValid(field);
+        return false;
+      }
+    }
+   

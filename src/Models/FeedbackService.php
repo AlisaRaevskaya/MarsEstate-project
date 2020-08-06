@@ -2,13 +2,13 @@
 namespace Alisa\MarsEstate\Models;
 
 use Alisa\MarsEstate\Models\Validator;
-use Alisa\MarsEstate\Controllers\FeedBackController;
+use Alisa\MarsEstate\Controllers\ContactsController;
 use Alisa\MarsEstate\Base\DBConnection;
 
 
 class FeedbackService{
 
-    const F_SUCCESS="Успешно отправлены данные";
+    const F_SUCCESS="Ваша информация принята";
     const INSERT_FAIL ="Данные не добавлены";
 
     public $validator;
@@ -28,8 +28,8 @@ class FeedbackService{
         $errors=$this->validator->validateFeedBackForm();
        }
     //получаем массив с ошибками  $errors
-    //если в $errors не пустой массив, возвращаем его в функции addUSer  
-    if($errors !== []) return $errors;
+    //если в $errors не пустой массив, возвращаем его в функции  
+    if(!empty($errors)) return $errors;
 
     //если пустой массив и нет ошибок, объявляем переменные полей
     $name = $feed_data['name'];

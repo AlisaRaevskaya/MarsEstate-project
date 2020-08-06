@@ -100,8 +100,12 @@ VALUES
 insert into `properties`(`category_id`,`property_name`,`location`,`img_property`,`s_main`,`price`,`description`, `utilities` )
 VALUES
 (3,'Земельный участок','Центальный район','earth.jpg',10, 6500000 , 'Описание', 'Водопровод,газ,электричество'),
-(3,'Земельный участок','ЦЕНТР','earth2.jpg',8, 7500000, 'Описание','Водопровод,электричество'),
-(3,'Земельный участок','ЦЕНТР','earth4.jpg',4, 4500000, 'Описание','Водопровод'); 
+(3,'Земельный участок','ЦЕНТР','home.jpg',8, 7500000, 'Описание','Водопровод,электричество');
+
+insert into `properties`(`category_id`,`property_name`,`location`,`img_property`,`s_main`,`price`,`description`, `utilities` )
+VALUES
+(3,'Земельный участок','Центальный район','house_7.jpg',10, 6500000 , 'Описание', 'Водопровод,газ,электричество'),
+(3,'Земельный участок','ЦЕНТР','earth2.jpg',8, 7500000, 'Описание','Водопровод,электричество'); 
 
 select * from properties p
 left join category c

@@ -14,8 +14,8 @@ class PropertiesController extends Controller{
     }
 
     public function services(){
-    $props = $this->propertyService->getallProperties();
 
+    $props = $this->propertyService->getallProperties();
 
     foreach($props as $key => $value){
         $allHouses = $props[0];
@@ -24,7 +24,9 @@ class PropertiesController extends Controller{
     }
 
     $content ="services.php";
-    $data=['page_title'=>"Наши услуги",
+
+    $data=[
+        'page_title'=>"Наши услуги",
             'path_css'=>'services',
             'allHouses'=>$allHouses,
             'allFlats'=>$allFlats,

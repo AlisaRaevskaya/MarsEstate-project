@@ -7,7 +7,6 @@ console.log(auth_form);
 auth_form.addEventListener('submit', async(event)=>{
 // async позволяет использовать await
     event.preventDefault();
-    let span_auth = document.querySelector(".auth_result");
     if (!validateAuth(this)){
       return; }
     try {
@@ -77,7 +76,6 @@ let reg_form = document.forms['regForm'];
 reg_form.addEventListener('submit', async(event)=>{
 // async позволяет использовать await
     event.preventDefault();
-    let span_auth = document.querySelector(".reg_result");
     if (!validate_Reg(this)){
       // span_auth.innerText= AUTH_ERROR;
       return; }

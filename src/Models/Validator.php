@@ -48,6 +48,7 @@ public function validateSubForm(){
   return $this->errors;
 }
 
+
 public function validateFeedBackForm(){
   $this->validateName();
   $this->validateEmail();
@@ -61,7 +62,6 @@ public function addError($key, $message){
   $this->errors[$key] = $message;
 }
 
-
 public function validateName(){
   $val =trim($this->data['name']);
   if(empty($val)){
@@ -73,14 +73,6 @@ public function validateName(){
 }
 }
 
-public function validateSubEmail(){
-  $val = trim($this->data['email']);
-  $check = (preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $val)) ? FALSE : TRUE;
-  if(!$check){
-   $this->addError('email', self::EMAIL_FAIL);
-  }
-  return true;
-}
 
 public function validateEmail(){
   $val =trim($this->data['email']);
@@ -122,33 +114,33 @@ public function validateCPassword(){
   }else{
     if($pass !== $val){
     $this->addError('re_password',self::PASS_NOT_SAME);
-  }
+    }
   }
 }
 
 public function validateTextArea(){
-  $limit = 300;
-  $val =trim($this->data['textarea']);
-  if(empty($val)){
-    $this->addError('textarea',self::EMPTY_FIELD);
-  }else{
-    if(strlen($val)>$limit){
-    $this->addError('textarea',self::LENGTH_FAIL);
-  }
-  }
+    $limit = 300;
+    $val =trim($this->data['textarea']);
+    if(empty($val)){
+      $this->addError('textarea',self::EMPTY_FIELD);
+    }else{
+      if(strlen($val)>$limit){
+      $this->addError('textarea',self::LENGTH_FAIL);
+      }
+    }
 }
 
 public function validateSubjectArea(){
-  $limit = 50;
-  $val =trim($this->data['subject']);
-  if(empty($val)){
-    $this->addError('subject',self::EMPTY_FIELD);
-  }else{
-    if(strlen($val)>$limit){
-    $this->addError('subject',self::LENGTH_FAIL);
-  }
-  }
-}
+    $limit = 50;
+    $val =trim($this->data['subject']);
+    if(empty($val)){
+      $this->addError('subject',self::EMPTY_FIELD);
+    }else{
+        if(strlen($val)>$limit){
+        $this->addError('subject',self::LENGTH_FAIL);
+        }
+      }
+    }
 
 }
 

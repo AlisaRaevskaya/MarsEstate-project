@@ -22,13 +22,15 @@ class PropertyService extends Service{
         from properties p
         left join category c
         on p.category_id = c.id_category
-        where c.name = "flats";';
+        where c.name = "flats";
+        limit 3;';
 
         $sql_land = 'SELECT *
         from properties p
         left join category c
         on p.category_id = c.id_category
-        where c.name = "land";';
+        where c.name = "land"
+        limit 3;';
         
         $allHouses=$this->dbConnection->queryAll($sql_house);
         $allFlats=$this->dbConnection->queryAll($sql_flats);

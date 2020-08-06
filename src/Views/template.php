@@ -21,7 +21,7 @@
     <div class="flex-row secondheader">
     
             <div class="flex-row logo">
-                <img src="/static/img/icon81.png" alt="Logo" id ="logo">
+                <img src="/static/img/logo83.png" alt="Logo" id ="logo">
                 <h2>HomeMars Estate</h2>
             </div>
     
@@ -80,7 +80,7 @@
 <div class="flex-4 address">
 
  <div class="flex-row logo">
-     <div> <img src="/static/img/icon81.png" alt="Logo" id ="logo"></div>
+     <div> <img src="/static/img/logo83.png" alt="Logo" id ="logo"></div>
     <div><h2>HomeMars Estate</h2></div>
   </div>
 

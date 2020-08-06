@@ -3,7 +3,7 @@
     <h1 class="text-center">Наши Контакты</h1>
    
 
-    <div class="flex-row space-around">
+<div class="flex-row space-around">
         <div>
             <div>
                 <h2>HomeMars Estate</h2>
@@ -36,33 +36,34 @@
     </div>
 </div>
 
- <div id="form_message" >
- <div>
- <h4 class ="head_fb">Также Вы можете оставить обратную связь и обязательно с Вами свяжемся!</h4>
+    <div id="form_message" >
+        <div>
+            <h4 class ="head_fb">Также Вы можете оставить обратную связь и обязательно с Вами свяжемся!</h4>
+        </div>
+
+        <form name="feedback_form">
+            <h2>Форма обратной связи.</h2>
+
+            <div class="titles">Ваше имя*</div>
+            <input required class="input" name="name"/> 
+            <span class="error_name"></span>
+
+            <div class="titles">Электронная почта*</div>
+            <input required class="input" name="email" />
+            <span class="error_email"></span>
+            
+            <div class="titles">Тема сообщения*:</div>
+            <input required class="input" name="subject" /> 
+            <span class="error_subject"></span>
+            
+            <div class="titles">Текст сообщения*:</div>
+            <textarea name="textarea" cols="22" rows="5"></textarea>
+            <span class="error_textarea"></span>
+
+            <span class ="for_send_result"></span>
+            <div><input id="submit" value="Отправить" type="submit" /></div>
+        </form>
+    </div>
 </div>
-    <form name="feedback_form" action ="/feedback/" method="POST">
-        <h2>Форма обратной связи.</h2>
 
-        <div class="titles">Ваше имя*</div>
-        <input required class="input" name="name"/> 
-        <span class="error_name"></span>
-
-    <div class="titles">Электронная почта*</div>
-    <input required class="input" name="email" />
-    <span class="error_email"></span>
-        
-        <div class="titles">Тема сообщения*:</div>
-        <input required class="input" name="subject" /> 
-        <span class="error_subject"></span>
-        
-        <div class="titles">Текст сообщения*:</div>
-        <textarea name="textarea" cols="22" rows="5"></textarea>
-        <span class="error_textarea"></span>
-
-        <span class ="for_send_result"></span>
-        <div><input id="submit" value="Отправить" type="submit" /></div>
-    </form>
-</div>
-</div>
-
-<script src="static/js/fb_ajax.js"></script>
+<script src="/static/js/fb_ajax.js"></script>
