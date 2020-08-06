@@ -221,13 +221,7 @@ flex-direction: column;
 .firstheader{
     padding-left:4rem;
     }
-    .logo{
-    padding-left:4rem;    
-    }
-    .logo img{
-    width:45px;
-    height:45px;
-    }
+    
 .footer2{
     display:none;
 }

@@ -3,7 +3,7 @@ let preloader = document.querySelector('.preloader');
 let main = document.querySelector('main');
 let dots =1;
 
-
+console.log(main);
 setInterval(()=>{
     switch(dots){
         case 1:
@@ -42,9 +42,17 @@ function finishPreloading(){
     },500);
 }
 
-window.onload = function(){
-setTimeout(()=>{
-    finishPreloading();
-}, 2000);
 
+window.addEventListener('load', onLoadfunc);
+
+function onLoadfunc(){
+document.body.classList.add('loaded');  
+window.setTimeout(()=>{
+    finishPreloading();
+}, 2500);
+document.body.classList.remove('loaded');
+window.removeEventListener('load', onLoadfunc);
 }
+
+
+

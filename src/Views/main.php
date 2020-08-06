@@ -1,3 +1,6 @@
+
+
+
 <div class="mainbox">
 
 <section class="text-center info">
@@ -254,7 +257,6 @@
         <h2>Отзывы наших клиентов</h2>
         <p>Вам нужно больше информации? Проверьте, что другие люди говорят о нашем продукте.</p>
         </div>
-
      <div class="flex-row space-around flex-m-column">
      <?foreach ($reviews as $rev):?>
             <div class="flex-4">

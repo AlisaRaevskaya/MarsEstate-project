@@ -130,22 +130,30 @@
        </div>
        </section>
     
-    
-     <section class="container">
+<section class="container">
 
-        <h2 class="text-center head-text">Наши последние новости</h2>
-    <div class="sl1"> 
-        <div class="flex-sm-column flex-row space-around">
-    <?foreach ($allNews as $news):?>
-        <div class="flex-column space-around news_box">
-            <div><img src="/static/img/<?echo $news['img']?>"></div>
-            <h3><?echo $news['title']?></h3>
-            <p><?echo $news['desc']?></p>
-            <div><a href="/news/<?echo $news['id_news']?>" class="button_next">Подробнее>>></a></div>
+<h2 class="text-center head-text">Наши последние новости</h2>
+
+    <div class="flex-sm-column flex-row space-around">
+        <?foreach ($allNews as $news):?>
+            <div class="flex-column space-around news_box">
+                <div class="img_news">
+                    <img src="/static/img/<?echo $news['img']?>">
+                </div>
+                <h3>
+                    <?echo $news['title']?>
+                </h3>
+                <p>
+                    <?echo $news['desc']?>
+                </p>
+                <div>
+                    <a href="/news/<?echo $news['id_news']?>" class="button_next">Подробнее>>></a>
+                </div>
+            </div>
+        <?endforeach?>
     </div>
+    <div>
+        <a href="/news/all"class="button_next text-center">Посмотреть все новости</a>
     </div>
-    <?endforeach?>
-    </section>
-<div class = "container">
-<a href="/news/all"class="button_next">Посмотреть все новости</a>
-</div>
+
+</section>

@@ -200,6 +200,9 @@ align-items: center;
     font-style:bold;
     display:block;
 }
+.loaded{
+    display: none;  
+}
 
 @media screen and (max-width:830px){
         .flex-sm-column{
@@ -220,7 +223,8 @@ align-items: center;
         .logo img{
             width:45px;
             height:45px;
-            }
+            } 
+
         footer{
                 font-size:small;
                 line-height:1;

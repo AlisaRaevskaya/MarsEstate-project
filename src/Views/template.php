@@ -61,18 +61,16 @@
 </div>
 </div>
 </header>
-
-<body>
-
 <div class="preloader">
     <div class="blocks">
     <div class="block"></div>
     <div class="block"></div>
     <div class="block"></div>
     </div>
-    <p class="preloader-text">...Loading</p>
-</div>
+    <p class="preloader-text"></p>
+</div> 
 
+<body>
 <main>
 
 <?include_once $content ?></main>
@@ -82,7 +80,7 @@
 <div class="flex-4 address">
 
  <div class="flex-row logo">
-     <div><img src="static/img/icon81.png"></div>
+     <div> <img src="/static/img/icon81.png" alt="Logo" id ="logo"></div>
     <div><h2>HomeMars Estate</h2></div>
   </div>
 

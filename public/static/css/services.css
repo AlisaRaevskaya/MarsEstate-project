@@ -29,12 +29,15 @@ background-image: -o-linear-gradient(left, #fff, #000, #fff);
   opacity:1;
   transition: opacity 1s ease;
 }
+.land_img{
+  width:300px;
+}
 .screen:hover{
   opacity:0.8;
   
 }
 .screen img{
-  transition: transform 1s ease;
+  transition: all 1s ease;
 }
 .screen img:hover{
   transform: translate3d(20px, -20px, 20px);

@@ -89,7 +89,7 @@
             <?php foreach ($allLand as $land):?>
                 <div class="screen_container">
                     <h2><? echo $land['property_name']?></h2>
-                    <div class="screen">
+                    <div class="screen land_img">
                         <img src="/static/img/<?echo $land['img_property']?>" alt="house" class="transition" >
                     </div>
 
@@ -108,9 +108,11 @@
             <?php endforeach;?>
 
             <div class = "container">
-            <a href="/services/<?echo $land['name']?>" class="button">Посмотреть все участки</a>
+            <a href="/services/<?echo $land['name']?>"class="button">Посмотреть все участки</a>
             </div>
-        </div>
+            </div>
+
+
     </section>
 
 </div>
