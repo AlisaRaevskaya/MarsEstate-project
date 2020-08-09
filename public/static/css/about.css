@@ -9,102 +9,31 @@
     margin: 20px auto;
     background-color: gray;
 }
-.mission{
-background-image: url(../img/whymars.jpg);
-/* background-position: cover; */
-width:100%;
-height:45rem;
-background-repeat: no-repeat;
-padding:4rem 0;
-}
-.mission-content{
-color:whitesmoke;
-line-height: 1.5;
-margin-top:20rem;
-/* font-style: oblique; */
-text-transform: uppercase;
-/* border: 1px solid white; */
-padding:10px;
-}
-
 .b-paragraph{
-padding:4rem 3rem;
-line-height:1.5;
-font-size:1rem;
+margin-top:5rem;
+font-size:1.2rem;
+justify-content: center;
+}
+.img_cosmonaut{
+margin-bottom:5rem;
     }
 
-.cosmonauts{
-  height:40rem;
-  padding-left:3rem;  
-} 
 section.team{
-    padding:2rem 0;
+    padding:1rem 0;
 }
 .team_img{
     border:1px solid white;
-    border-radius:40%
+    border-radius:40%;
 }
 .team_text{
-line-height:2;
+line-height:1.7;
 padding-top:4rem;
 }
 .pilot_team{
     margin-top:2rem;
 }
-.slider{
-background-color:#000;
-}
-/* .news{
-background:grey;
-} */
-.news_box{
-    /* align-items:center; */
-    justify-content: space-around;
-    margin-left:2rem;
-    overflow:hidden;
-}
 .head-text{
 padding:2rem 0;    
-}
-.services{
-    line-height:1.5;
-    }
-.service{
-    height:auto;
-    border:1px solid #9b2d30; 
-    padding:20px 0;
-    overflow:hidden;
-    width:100%;
-}
-.service a{
-    color:white;
-}
-.button_next{
-    background:#9b2d30 ;
-    padding:10px 15px;
-    display: inline-block;
-    color:white;
-    border-radius: 25px;
-    border-bottom: 5px solid #662322;
-    box-shadow: 4px 4px 4px rgba(0,0,0,0.3);
-}
-.button_next:hover{
-    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
-}
-
-.gallery img{
-    width: 100%;
-    height: 100%;
-    transition: all 1s;
-}
-
-.gallery img:hover {
-    transform: scale(1.1);
-}
-
-.gallery div {
-    overflow: hidden;
-    border: 1px solid #b19891;
 }
 .history{
     padding:2rem;
@@ -122,13 +51,47 @@ margin-bottom:2rem;
 img.year{
  width:107px;
 }
-.prev{
-    color:red;
+/* .mission-content{
+    background-image: url(../img/whymars_1.png);
+    background-repeat: no-repeat;
+    height:45rem;
+    position: relative;
+    } */
+
+.mission{
+    position: absolute;
+    color:whitesmoke;
+    font-style: bold;
+    text-transform: uppercase;
+    padding-top:30rem;
+        }
+
+.button_next{
+    background:#9b2d30 ;
+    padding:10px 15px;
+    display: inline-block;
+    color:white;
+    border-radius: 25px;
+    border-bottom: 5px solid #662322;
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.3);
+}
+.button_next:hover{
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.allnews{
+padding:2rem 0;
 }
 .img_news{
-width:15.6rem;
-}
+    width:16.6rem;
+    }
 
+.news_box{
+        /* align-items:center; */
+        justify-content: space-around;
+        margin-left:2rem;
+        overflow:hidden;
+}
+    
 @media screen and (max-width:768px){
 .flex-sm-column{
         display:flex;
@@ -166,11 +129,7 @@ height:45px;
     margin:0 2rem;
     line-height: 1.5;
 }
-.services{
-    width:700px;
-    align-items:center;
-    padding-left:2rem;
-    }
+
 .mission{
     height:20rem;
     }
@@ -195,7 +154,7 @@ footer{
 .paragraph .textcolumn{
    padding-left:1rem; 
 }
-.textcolumn{
+.text-column{
     overflow: hidden;
     padding:0 1rem;
    } 

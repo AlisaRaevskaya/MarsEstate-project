@@ -52,8 +52,6 @@ public function validateSubForm(){
 public function validateFeedBackForm(){
   $this->validateName();
   $this->validateEmail();
-  $this->validateSubjectArea();
-  $this->validateTextArea();
   return $this->errors;
 }
 
@@ -68,7 +66,7 @@ public function validateName(){
     $this->addError('name', self::EMPTY_FIELD);
   }else{
     if(!preg_match("/[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/", $val)) {
-      $this->addError( 'name',self::NAME_CHARACTER_FAIL);
+      $this->addError( 'name', self::NAME_CHARACTER_FAIL);
   }
 }
 }
@@ -84,6 +82,13 @@ public function validateEmail(){
   }
   }
 }
+function validateSubEmail(){
+  $val = trim($this->data['email']);
+    if (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]$/",$val)){
+      $this->addError('email', self::EMAIL_FAIL);
+    }
+}
+
 
 public function validateCheckbox(){
   $val =$this->data['checkRules'];
@@ -132,7 +137,7 @@ public function validateTextArea(){
 
 public function validateSubjectArea(){
     $limit = 50;
-    $val =trim($this->data['subject']);
+    $val = trim($this->data['subject']);
     if(empty($val)){
       $this->addError('subject',self::EMPTY_FIELD);
     }else{

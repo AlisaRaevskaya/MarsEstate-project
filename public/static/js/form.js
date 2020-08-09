@@ -31,21 +31,20 @@ break;
     }
 }
 
-let userInputArray = Array.from(document.querySelectorAll(".userInput"));
-console.log(userInputArray);
+let userInput = Array.from(document.querySelectorAll(".userInput"));
+console.log(userInput);
 
-for (elem of userInputArray){
+for (elem of userInput){
 console.log(elem);
 
-elem.addEventListener("focus", focusFunc);
+elem.addEventListener("focus", function () {
+console.log(this.parentElement)
+this.parentElement.classList.add("focus");
+})
 
-function focusFunc(){
-console.log(this.previousElementSibling);
-this.previousElementSibling.classList.add("focus");
-}
-// elem.addEventListener("blur", function () {
-// this.previousElementSibling.classList.remove("focus");
-// })
+elem.addEventListener("blur", function () {
+if(this.value === 0)
+this.parentElement.classList.remove("focus");
+})
+
 };
-
-elem.removeEventListener("focus", focusFunc);

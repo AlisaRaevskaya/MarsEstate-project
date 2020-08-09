@@ -1,6 +1,9 @@
 
 let feedback_form = document.forms.feedback_form;
 console.log(feedback_form);
+let name= feedback_form.elements.name;
+let email= feedback_form.elements.email;
+
 let result = document.querySelector(".for_send_result");
 let span_name = document.querySelector(".error_name");
 let span_email = document.querySelector(".error_email");
@@ -20,9 +23,9 @@ feedback_form.addEventListener('submit', async(event)=>{
             method: 'POST', 
             body: new FormData(feedback_form)
         });
-        const answer = await response.json(); // .json();
+        const answer = await response.json(); 
         console.log("ответ сервера " + answer);
-        console.log(responseHandler(answer));
+        responseHandler(answer);
     } catch (error) {
         console.log("ошибка", error);
     }
@@ -50,9 +53,6 @@ function responseHandler(answer){
   }
   }                     
 }
-
-let name= feedback_form.elements.name;
-let email= feedback_form.elements.email;
 
 function validateFeedBack(feedback_form){
     if(feedback_form){
@@ -89,7 +89,7 @@ function validateEmail(elem) {
 
 function containsCharacters(field, code) {
     let regEx;
-    switch (code) {
+    switch (code){
       case 1:
         // letters
         regEx = /[A-Za-zА-Яа-яЁё]\D$/u;

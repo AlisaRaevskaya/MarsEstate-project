@@ -51,7 +51,8 @@ a{
     /*  */
 }
 .inputBox{
-    margin:0 0 15px;
+    position:relative;
+    margin: 0 0 15px;
     }
 
     .userInput {
@@ -75,7 +76,6 @@ a{
         transition: .5s;
        } 
 
-
 .dws-form ul{
 list-style: none;
  padding: 0;
@@ -96,7 +96,7 @@ label.tab.active {
     background: #fff;
     color: black;
    }
-  .focus{
+   .focus .labelText{
     transform:translateY(-30px);
     font-size: 14px;
     color: #fa4a23;

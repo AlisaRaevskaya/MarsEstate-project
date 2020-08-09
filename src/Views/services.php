@@ -34,7 +34,7 @@
                     </div>
                 </div>
             <?php endforeach;?>
-            <div class = "container">
+            <div class = "container button_all">
             <a href="/services/<?echo $house['name']?>" class="button">Посмотреть все дома</a>
             </div>
         </div>
@@ -69,7 +69,7 @@
                     </div>
                 <?php endforeach;?>
 
-                <div class = "container">
+                <div class ="container button_all">
             <a href="/services/<?echo $flat['name']?>" class="button">Посмотреть все квартиры</a>
             </div>
             </div>
@@ -107,7 +107,7 @@
                 </div>
             <?php endforeach;?>
 
-            <div class = "container">
+            <div class = "container button_all">
             <a href="/services/<?echo $land['name']?>"class="button">Посмотреть все участки</a>
             </div>
             </div>

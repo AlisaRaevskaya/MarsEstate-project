@@ -36,7 +36,7 @@
     </div>
 </div>
 
-    <div id="form_message" >
+    <!-- <div id="form_message" >
         <div>
             <h4 class ="head_fb">Также Вы можете оставить обратную связь и обязательно с Вами свяжемся!</h4>
         </div>
@@ -63,7 +63,7 @@
             <span class ="for_send_result"></span>
             <div><input id="submit" value="Отправить" type="submit" /></div>
         </form>
-    </div>
+    </div> -->
 </div>
 
 <script src="/static/js/fb_ajax.js"></script>

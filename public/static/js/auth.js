@@ -47,7 +47,7 @@ let auth_result = document.querySelector('.auth_result');
 
 function responseHandler(answer){
     if(answer === AUTH_SUCCESS){
-      alert(AUTH_SUCCESS);
+      auth_result.innerHTML = AUTH_SUCCESS;
       window.location.replace('/');
     }else if(answer === EMAIL_FAIL){
         span_email_error.innerHTML= EMAIL_FAIL;

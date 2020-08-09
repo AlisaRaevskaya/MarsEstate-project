@@ -10,28 +10,17 @@
 img .sl{
     width:auto;
 }
-.request{
-    background-color: white;
-    position:fixed;
-    right: 2rem;
-    bottom: 2rem;
-    border:1px solid #9b2d30;
-    border-radius: 3%;
-}
 .info{
-    line-height: 1.5;
     font-size: 1rem;
-    height:10rem;
-    margin-top:1rem;
+    margin:1rem 0 1rem;
+}
+.service_box,
+.info p,
+.service-text p,
+.service-text h3{
+    padding-top:1rem;
+}
 
-}
-.services{
-    height:37rem;
-    line-height:1.5;
-    }
-.service-text{
-    padding:1rem 0;
-}
 .service{
     border:1px solid #9b2d30;
     border-radius:10%;
@@ -40,11 +29,14 @@ img .sl{
     transition: 1s ease;
 }
 .service:hover{
-    width:25rem;
+    width:20rem;
+}
+.services{
+    padding-bottom:2rem;
 }
 div.item .benefits{
     transition: all .2s ease-in-out;
-    transform: translate3d(20px, 0, 0);
+    transform: translate3d(1rem, 0, 0);
     opacity: 0;
 }
 
@@ -52,6 +44,7 @@ div.item .benefits.active{
     transform: translate3d(0px, 0, 0);
     opacity: 1;
   }
+  
   
 .benefits_container{
     height:48rem;
@@ -73,70 +66,15 @@ margin-bottom:5rem;
 .benefits p{
     font-size:1rem;
 }
-.feedback{
-    height:auto;
-    margin: 2rem 0 2rem 0;
-}
-.feedback div{
-    padding-top: 1rem;
-    line-height: 1.5;
-    font-size: 1rem;
-}
-
-.s-stats{
-    /* background-image: url("../img/cropmars1.jpg");
-    background-repeat: no-repeat;
-    background-attachment: cover; */
-    width:100%;
-    height:25rem;
-    margin-top:2rem;
-    /* position: relative; */
-
-}
-.stats-container{
-/* position:absolute; */
-color:black;
-font-size: 2rem;
-font-weight: bold;
-text-transform: uppercase;
-align-items: center; 
-padding-top:2rem;
-padding-left:20px;
-
-}
-div.stats-container div.flex-column{
-align-items: center;
-justify-content: center;
-}
-.block-concept{
-align-items: center;
-height:auto;
-}
-.marsmap{
-    width:100%;
-    padding:2rem;
-}
-.text_concept{
-    text-align: justify;
-    line-height: 1.5;
-    font-size: 1.1rem;
-    padding:2rem;
-    
-}
-.famous{
-    background-color:white;
-    height:auto;
-    width:100%;
-    color:black;
-}
-.famous div.flex-row{
-    align-items: center;
-    padding:3rem 0;
-}
 div.video{
     margin:1rem 0;
 }
-
+.whyMars{
+    font-size: 2rem;
+    display:flex;
+    justify-content: center;
+    margin:1rem 0 2rem;
+}
 video{
     border: 6px solid white;
     box-shadow:5px 5px white;
@@ -149,12 +87,47 @@ video{
     /* align-items:center; */
 }
 .text-for-video{
-    line-height: 1.5;
     font-size: 1.2rem;
     text-align: center;
-    margin-left:1rem ;
-    height:auto;
+    margin-left:2rem ;
 }
+.block-concept{
+    padding:2rem 0;
+    }
+.marsmap{
+    width:100%;
+    padding:2rem;
+    }
+.text_concept{
+    text-align: justify;
+    font-size: 1.1rem;
+    padding:2rem; 
+}
+.s-stats{
+    width:100%;
+    margin:3rem 0 6rem;
+}
+.stats-container{
+font-size: 2rem;
+font-weight: bold;
+text-transform: uppercase;
+align-items: center; 
+padding-top:2rem;
+padding-left:1.5rem;
+
+}
+div.stats-container div.flex-column{
+align-items: center;
+/* justify-content: center; */
+}
+.famous{
+    padding:3rem 0;
+}
+.famous div.flex-row{
+    align-items: center;
+    padding:3rem 0;
+}
+
 .subscription{
     background:whitesmoke;
     line-height: 1.5;
@@ -180,15 +153,16 @@ div .subscription{
     margin-bottom:1rem;
     cursor: pointer;
 }
-.none{
-    display:none;
+.feedback{
+    height:auto;
+    margin: 2rem 0 2rem 0;
 }
-.whyMars{
-    font-size: 30px;
-    display:flex;
-    justify-content: center;
-    margin-bottom:6rem;
+.feedback div{
+    padding-top: 1rem;
+    line-height: 1.5;
+    font-size: 1rem;
 }
+
 .email_exists{
     font-size:15px;
     font-style:bold;
@@ -283,9 +257,6 @@ display: none;
 .info{
             height: auto;
         }    
-.services{
-            height:auto;
-        }
 
 .service-text{
             padding: 0;

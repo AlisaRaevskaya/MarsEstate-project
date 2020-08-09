@@ -19,9 +19,6 @@ class AccountController extends Controller
     }
 
 
-    // // метод, отвечающий за отображение страницы с регистрацией
-    // // /registration GET
-
     public function showForm(){
         $content = 'registration_form.php';
         $data = [
@@ -67,7 +64,6 @@ class AccountController extends Controller
         return $this->ajaxResponse($result);//возвращает клиенту строчку 
     }
     
- 
     public function logout() {
         $_SESSION=[];
         header('Location: /');

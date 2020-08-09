@@ -42,9 +42,9 @@ background-image: -o-linear-gradient(left, #fff, #000, #fff);
 .screen img:hover{
   transform: translate3d(20px, -20px, 20px);
 }
-/* .screen_container{
-  border:7px double black;
-} */
+.button_all{
+  margin-top:2rem;
+}
 .description{
   font-size: 1.3rem;
   }

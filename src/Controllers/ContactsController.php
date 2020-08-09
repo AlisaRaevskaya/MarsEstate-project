@@ -29,10 +29,8 @@ class ContactsController extends Controller{
         $feed_data =$request->post();
 
         $result=$this->feedbackService->checkFeedback($feed_data);
-        
-        var_dump($result);
 
-        $result =json_encode($result, JSON_UNESCAPED_UNICODE);
+        $result = json_encode($result, JSON_UNESCAPED_UNICODE);
 
         return $this->ajaxResponse($result);
     }
