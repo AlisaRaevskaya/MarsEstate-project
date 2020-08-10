@@ -1,0 +1,73 @@
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column
+}
+.row-reverse{
+    flex-direction: row-reverse;
+}
+.flex-end{
+justify-content: end;
+}
+.space-between{
+    justify-content: space-between;
+}
+.space-around{
+    justify-content: space-around;
+}
+.wrap{
+flex-wrap: wrap;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-2 {
+    flex: 16.66%;
+}
+.flex-3{
+    flex: 25%;
+}
+.flex-4 {
+    flex: 33.33%;
+}
+.flex-5{
+    flex:42%;
+}
+.flex-6 {
+    flex: 50%;
+}
+.flex-7{
+    flex: 58%;
+}
+.flex-8{
+flex:66,66%;
+}
+
+.flex-12{
+    flex:100%;
+}
+.grid_four_items{
+display:inline-grid;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(2, 1fr);
+column-gap: 1rem;
+padding:2rem 0;
+}
+.grid_four{
+    display:inline-grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 200px);
+    column-gap: 1rem;
+}
+
+
+    /* добавляет полосу прокрутки, если содержимое
+     не вмещается в контейнер*/
+    /*overflow: scroll;*/
+    /* скрывает содержимое, которое не вмещается в контейнер*/
+    /* overflow: hidden; */

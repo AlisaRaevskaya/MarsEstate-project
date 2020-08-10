@@ -1,0 +1,1 @@
+<h3><? echo $page_title?></h3>

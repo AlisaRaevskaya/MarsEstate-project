@@ -1,0 +1,226 @@
+@import "style.css";
+@import "flex.css";
+@import "form.css";
+
+
+.sl{
+    max-width:1000px;
+    max-height:600px;
+    margin: 20px auto;
+    background-color: gray;
+}
+.b-paragraph{
+margin-top:5rem;
+font-size:1.2rem;
+justify-content: center;
+}
+.img_cosmonaut{
+margin-bottom:5rem;
+    }
+
+section.team{
+    padding:1rem 0;
+}
+.team_img{
+    border:1px solid white;
+    border-radius:40%;
+}
+.team_text{
+line-height:1.7;
+padding-top:4rem;
+}
+.pilot_team{
+    margin-top:2rem;
+}
+.head-text{
+padding:2rem 0;    
+}
+.history{
+    padding:2rem;
+}
+.history h2{
+color: #b19891;
+text-shadow:1px 1px 2px black, 0 0 1em darkolivegreen;
+margin-bottom:2rem;
+}
+.history_item{
+    border:1px solid #b19891;
+    border-radius: 2rem;
+    padding: 2rem;
+}
+img.year{
+ width:107px;
+}
+/* .mission-content{
+    background-image: url(../img/whymars_1.png);
+    background-repeat: no-repeat;
+    height:45rem;
+    position: relative;
+    } */
+
+.mission{
+    position: absolute;
+    color:whitesmoke;
+    font-style: bold;
+    text-transform: uppercase;
+    padding-top:30rem;
+        }
+
+.button_next{
+    background:#9b2d30 ;
+    padding:10px 15px;
+    display: inline-block;
+    color:white;
+    border-radius: 25px;
+    border-bottom: 5px solid #662322;
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.3);
+}
+.button_next:hover{
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.allnews{
+padding:2rem 0;
+}
+.img_news{
+    width:16.6rem;
+    }
+
+.news_box{
+        /* align-items:center; */
+        justify-content: space-around;
+        margin-left:2rem;
+        overflow:hidden;
+}
+    
+@media screen and (max-width:768px){
+.flex-sm-column{
+        display:flex;
+        flex-direction: column;
+}
+.sm-between{
+    justify-content: space-between;
+}
+h1, 
+h2, 
+h3{
+  font-family: helvetica;
+  font-size: 3vw;
+  text-align: center;
+  text-transform: uppercase;
+}
+p{
+  font-family: calibri;
+  font-size: 2vw;
+  line-height: 3vw;
+  text-align: justify;
+}
+.firstheader{
+padding-left:4rem;
+}
+.logo{
+padding-left:4rem;    
+}
+.logo img{
+width:45px;
+height:45px;
+}
+
+.news_box{
+    margin:0 2rem;
+    line-height: 1.5;
+}
+
+.mission{
+    height:20rem;
+    }
+div.mission-content{
+        text-align:center;
+        width:600px;
+        padding-top:10%;
+        }   
+footer{
+        font-size:small;
+        line-height:1;
+    }
+.footer2{
+        font-size:10px;  
+    }
+.footer2:last-child{
+    display: none;
+    }
+.footer2:nth-child(2){
+        display: none;}
+
+.paragraph .textcolumn{
+   padding-left:1rem; 
+}
+.text-column{
+    overflow: hidden;
+    padding:0 1rem;
+   } 
+   }
+   @media screen and (max-width:480px){
+    h1, 
+    h2, 
+    h3{
+      font-family: helvetica;
+      font-size: 4vw;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    
+    p{
+      font-family: calibri;
+      font-size: 3vw;
+      line-height: 4vw;
+      text-align: justify;
+    }
+    .flex-s-column{
+            display:flex;
+            flex-direction: column;
+    }
+    .flex-s-column-reverse{
+        display:flex;
+        flex-direction: column-reverse;
+    }
+    .s-between{
+        justify-content: space-between;
+    }
+    .icon-login{
+    font-size: 25px;
+    }
+    .services{
+        width:450px;
+        align-items:center;
+        padding-left:0;
+        }
+
+        .news_box{
+            width:22rem;
+            align-items:center;
+            justify-content: space-around;
+            margin-top:2rem;
+        }
+    footer div.flex-4{
+            padding:5px 5px 0 5px;
+        }
+        .quickreferance{
+            display:none;
+        }
+        .firstheader{
+            padding-left:2rem;
+            }
+            .logo{
+            padding-left:0;    
+            }
+           
+            .mission{
+                height:20rem;
+                } 
+            div.mission-content{
+                    text-align:center;
+                    width:400px;
+                    padding-top:10%;
+                    }
+                }
+

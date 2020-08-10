@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700');
+
+@import "style.css";
+@import "flex.css";
+
+form{
+    padding: 10px;
+    /* border: 4px solid #9b2d30; */
+    background: rgb(0, 0, 0, 0.7);
+    color:white;
+}
+a{
+    color:white;
+}
+.dws-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    background: rgb(44, 44, 44, 0.7);
+    width:370px;
+    padding: 20px;
+    /* display: flex;
+    height: 100vh;
+    align-content: center; */
+   }
+ /* .dws-wrapper:target{
+    display: block;
+    } */
+.close-modal{
+        transform:rotate(45deg);
+        font-size:2rem;
+        position:absolute;
+        right:5px;
+        top:0px;
+        color:whitesmoke;
+        cursor: pointer;
+    }
+.tab-form{
+    background: rgb(44, 44, 44, 0.7); 
+    display:none;
+}
+.tab-form.active {
+    display: block;
+   };
+
+.dws-form{
+    background-color:white;
+    padding:10px;
+    width:600px;
+    /*  */
+}
+.inputBox{
+    position:relative;
+    margin: 0 0 15px;
+    }
+
+    .userInput {
+        width: 100%; 
+        height: 40px;
+        font-size: 15px;
+        color: whitesmoke;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #a5a5a5;
+        padding:10px;
+        background: transparent;
+        position:relative;
+       }
+
+.labelText {
+        position:absolute;
+        font-size: 18px;
+        line-height: 55px;
+        color: whitesmoke;
+        transition: .5s;
+       } 
+
+.dws-form ul{
+list-style: none;
+ padding: 0;
+ margin: 0;
+}
+label.tab {
+    color: #ffffff;
+    font-weight: 600;
+    padding: 18.5px;
+    display: inline-block;
+    border-radius:3px 3px 0 0;
+    margin-bottom:1px;
+    cursor :pointer;
+    width:135px;
+   }
+
+label.tab.active {
+    background: #fff;
+    color: black;
+   }
+   .focus .labelText{
+    transform:translateY(-30px);
+    font-size: 14px;
+    color: #fa4a23;
+    transition:0,5s;
+   };
+  
+/* .dws-form input {
+    /* display: block;
+    width: 100%;  */
+
+div.fa_accounts{
+    margin:1rem;
+}
+.fa_accounts a{
+    text-decoration: none;
+    transition: 0.5s;
+    color:white;
+    display:flex;
+    flex-direction:row;
+    font-size:1.5rem;
+}
+a.forget:hover,
+.fa_accounts a:hover{
+    color:#a0a0a0;
+}  
+
+input.button {
+    background: #cc3500 ;
+    color: #ffffff;
+    width: 50%;
+    height: 35px;
+    font-size: 18px;
+    border: none;
+    padding:10px 10px;
+    cursor: pointer;
+    transition: .5s;
+    border-radius: 10px; 
+
+   }
+   .reg_button {
+    background: #cc3500 ;
+    color: #ffffff;
+    width: 85%;
+    height: 35px;
+    font-size: 18px;
+    border: none;
+    padding:10px 10px;
+    cursor: pointer;
+    transition: .5s;
+    border-radius: 10px;  
+   } 
+
+.reg_button,
+.button:hover {
+    background: #fa4a23;
+   }
+
+div.recover{
+margin-top:1rem;
+   }
+
+a.terms:hover{
+    color:#c2492d ;
+}
+span{
+    font-size: 12px;
+    padding:2px 0;
+}
+ 

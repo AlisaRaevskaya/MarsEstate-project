@@ -1,0 +1,302 @@
+@import "style.css";
+@import "flex.css";
+@import "form.css";
+
+.sl{
+    
+    margin: 20px auto;
+    background-color: gray;
+}
+img .sl{
+    width:auto;
+}
+.info{
+    font-size: 1rem;
+    margin:1rem 0 1rem;
+}
+.service_box,
+.info p,
+.service-text p,
+.service-text h3{
+    padding-top:1rem;
+}
+
+.service{
+    border:1px solid #9b2d30;
+    border-radius:10%;
+    overflow:hidden;
+    width:19rem;
+    transition: 1s ease;
+}
+.service:hover{
+    width:20rem;
+}
+.services{
+    padding-bottom:2rem;
+}
+div.item .benefits{
+    transition: all .2s ease-in-out;
+    transform: translate3d(1rem, 0, 0);
+    opacity: 0;
+}
+
+div.item .benefits.active{
+    transform: translate3d(0px, 0, 0);
+    opacity: 1;
+  }
+  
+  
+.benefits_container{
+    height:48rem;
+    line-height:1.5;   
+}
+.text-benefits{
+    font-size:1.2rem;
+    }
+.benefits{
+    height:auto;
+    margin:0 1rem;
+}
+.row-1{
+margin-bottom:5rem;
+}
+.flex-4 span{
+    padding-left: 5rem;
+}
+.benefits p{
+    font-size:1rem;
+}
+div.video{
+    margin:1rem 0;
+}
+.whyMars{
+    font-size: 2rem;
+    display:flex;
+    justify-content: center;
+    margin:1rem 0 2rem;
+}
+video{
+    border: 6px solid white;
+    box-shadow:5px 5px white;
+  }
+.forvideo{
+    background-color:#000000;
+    height:45rem;
+    width:100%;
+    color:white;
+    /* align-items:center; */
+}
+.text-for-video{
+    font-size: 1.2rem;
+    text-align: center;
+    margin-left:2rem ;
+}
+.block-concept{
+    padding:2rem 0;
+    }
+.marsmap{
+    width:100%;
+    padding:2rem;
+    }
+.text_concept{
+    text-align: justify;
+    font-size: 1.1rem;
+    padding:2rem; 
+}
+.s-stats{
+    width:100%;
+    margin:3rem 0 6rem;
+}
+.stats-container{
+font-size: 2rem;
+font-weight: bold;
+text-transform: uppercase;
+align-items: center; 
+padding-top:2rem;
+padding-left:1.5rem;
+
+}
+div.stats-container div.flex-column{
+align-items: center;
+/* justify-content: center; */
+}
+.famous{
+    padding:3rem 0;
+}
+.famous div.flex-row{
+    align-items: center;
+    padding:3rem 0;
+}
+
+.subscription{
+    background:whitesmoke;
+    line-height: 1.5;
+    border:1px dashed darkred;
+    border-radius:2rem;
+    margin-bottom:1rem;
+}
+.sub_input{
+    padding:1rem 3rem;
+    border:1px solid #9b2d30;
+    border-radius:1rem ;
+    margin:1rem 0;
+}
+div .subscription{
+    padding:2rem 0;
+}
+.sub_button{
+    color:#9b2d30;
+    font-weight: bold;
+    font-size:1rem;
+    padding:1rem 2rem;
+    border-radius:1rem ;
+    margin-bottom:1rem;
+    cursor: pointer;
+}
+.feedback{
+    height:auto;
+    margin: 2rem 0 2rem 0;
+}
+.feedback div{
+    padding-top: 1rem;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+.email_exists{
+    font-size:15px;
+    font-style:bold;
+    color: whitesmoke;
+}
+
+@media screen and (max-width:900px){
+    .xm-scroll{
+        overflow:scroll;
+        width:100%;
+        height:auto;
+    }   
+}
+
+@media screen and (max-width:830px){
+    .video{
+ display:none;
+    }
+.text_concept{
+    text-align: center;
+    line-height:1;
+    font-size: 1rem;
+    margin-left:3rem;
+    color:black;
+}
+.flex-sm-column{
+display: flex;
+flex-direction: column;
+}
+.firstheader{
+    padding-left:4rem;
+    }
+    
+.footer2{
+    display:none;
+}
+.s-stats{
+    display:none;
+}
+.flex-sm-row{
+    display: flex;
+    flex-direction: row;  
+}
+.benefits{
+    margin-left:1rem;
+}
+footer{
+    font-size:small;
+    line-height:1;
+}
+.footer2{
+    font-size:10px;  
+}
+.footer2:last-child{
+display: none;
+
+}
+.footer2:nth-child(2){
+    display: none;
+}
+}
+
+@media screen and (max-width:480px){
+
+.flex-m-column{
+        display: flex;
+        flex-direction: column;
+        }
+.flex-m-row{
+            display: flex;
+            flex-direction: row;    
+        }
+.icon-login{
+            font-size: 25px;
+            }
+.m-center{
+    align-items: center;
+}
+.m-justify-content{
+    justify-content: center;
+}
+.firstheader{
+    padding-left:2rem;
+    }
+.logo{
+    padding-left:0;    
+    }
+ .logo img{
+        width:45px;
+        height:45px;
+        }
+.info{
+            height: auto;
+        }    
+
+.service-text{
+            padding: 0;
+        }       
+footer:last-child{
+        padding-left:0rem;
+    }
+    
+.m-space-between{
+    justify-content: space-between;
+}
+.request{
+    display:none;
+}
+.quickreferance{
+    display:none;
+}
+footer div.flex-4{
+    padding:5px 5px 0 5px;
+}
+.feedback div.flex-4{
+    padding-left:1rem;
+}
+.service p{
+    font-size:smaller;
+}
+.famous h3{
+    font-size:small;
+    overflow: hidden;
+    word-break:break-all;
+}
+.famous div.flex-row{
+    margin-top:5px;
+}
+.benefits p,
+.service-text p,
+.info p,
+.feedback p,
+.text-for-video p,
+.text_concept p{
+font-size: 1.2rem;
+}
+}

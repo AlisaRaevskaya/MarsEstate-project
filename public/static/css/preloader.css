@@ -1,0 +1,89 @@
+body{
+    margin:0;
+    padding:0;
+    background-color:blanchedalmond;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.preloader{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    display:flex;
+    justify-content: center;
+    flex-flow:column;
+    align-items:center;
+    width:100vw;
+    height:100vh;
+    background-color: #171717;
+    
+    transition:all 0,5s ease-out;
+}
+
+.preloader .preloader-text{
+color:blanchedalmond;
+font-size:35px;
+font-weight:300;
+}
+.preloader .blocks{
+    position:relative;
+    width:160px;
+    height:160px;
+    animation: rotate 7s ease-in-out infinite;
+}
+.preloader .blocks .block{
+    position:absolute;
+    width:60px;
+    height:60px;
+    border-radius:4px;
+    background-color:yellow;
+    /* transition:all 0,5s linear; */
+}
+.preloader .blocks .block:nth-child(1){
+top: 0px;
+left:80px;
+animation: translate-first 1.5s ease-in-out infinite;
+animation-delay:1s;
+}
+.preloader .blocks .block:nth-child(2){
+    top: 0px;
+    left:0px;
+    animation: translate-second 1.5s ease-in-out infinite;
+    animation-delay: 1s;
+    }
+.preloader .blocks .block:nth-child(3){
+        top: 80px;
+        left:0px;
+        animation: translate-third 1.5s ease-in-out infinite;
+        animation-delay:1s;
+        }
+
+@keyframes rotate{
+0% {transform:rotate(0deg)}
+100% {transform:rotate(360deg)}
+}   
+
+@keyframes translate-first{
+from {transform: translateY(0px)translateX(0px)}
+25% {transform: translateY(80px)translateX(0px)}
+50% {transform: translateY(80px)translateX(-80px)}
+75%{transform: translateY(0px)translateX(-80px)}
+to {transform: translateY(0px)translateX(0px)} 
+}  
+@keyframes translate-second{
+from {transform: translateY(0px)translateX(0px)}
+25% {transform: translateY(0px)translateX(80px)}
+50% {transform: translateY(80px)translateX(80px)}
+75%{transform: translateX(0px)translateY(80px)}
+to{transform: translateX(0px)translateY(0px)}
+}  
+
+@keyframes translate-third{
+from {transform: translateY(0px)translateX(0px)}
+25% {transform: translateY(-80px)translateX(0px)}
+50% {transform: translateY(-80px)translateX(80px)}
+75%{ transform: translateX(80px)translateY(0px)}
+to {transform: translateX(0px)translateY(0px)}
+        } 
