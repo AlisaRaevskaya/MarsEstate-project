@@ -34,8 +34,6 @@
         <li>
             <a href="/about/">О нас</a>
             <ul class="submenu">
-            <li><a href="/about/faq/;">FAQ</a></li>
-            <li><a href="/about/facts/">Факты о марсе</a></li>
             <li><a href="/news/all">Наши новости</a></li>
         </ul> 
         </li>
@@ -61,6 +59,7 @@
 </div>
 </div>
 </header>
+
 <div class="preloader">
     <div class="blocks">
     <div class="block"></div>

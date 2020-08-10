@@ -46,11 +46,10 @@ function finishPreloading(){
 window.addEventListener('load', onLoadfunc);
 
 function onLoadfunc(){
-document.body.classList.add('loaded');  
 window.setTimeout(()=>{
     finishPreloading();
-}, 2500);
-document.body.classList.remove('loaded');
+}, 3500);
+
 window.removeEventListener('load', onLoadfunc);
 }
 
